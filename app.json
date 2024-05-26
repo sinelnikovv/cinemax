@@ -1,27 +1,29 @@
 {
   "expo": {
-    "name": "cinemax",
-    "slug": "cinemax",
-    "version": "1.0.0",
+    "name": "Cinemax",
+    "slug": "Cinemax",
+    "version": "0.1.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/images/logo.png",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#171725",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/images/splashScreen.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#171725"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sinelnikov.cinemax"
+    },
+    "androidStatusBar": {
+      "translucent": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/images/logo.png",
+        "backgroundColor": "#171725"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
