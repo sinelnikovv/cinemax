@@ -24,6 +24,9 @@
         "foregroundImage": "./assets/images/logo.png",
         "backgroundColor": "#171725"
       }
-    }
+    },
+    "plugins": [
+      "expo-font"
+    ]
   }
 }
