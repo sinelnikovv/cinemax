@@ -1,17 +1,18 @@
-import { useFonts } from 'expo-font';
-import { StatusBar } from 'expo-status-bar';
-import { useEffect } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
-import * as SplashScreen from 'expo-splash-screen';
+import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
+import { useEffect } from "react";
+import { View, Image } from "react-native";
+import * as SplashScreen from "expo-splash-screen";
+import "react-native-gesture-handler";
+import Navigation from "./src/navigation";
 
 SplashScreen.preventAutoHideAsync();
 
 export const App = () => {
-
   const [fontsLoaded] = useFonts({
-    'Montserrat-SemiBold': require('./src/assets/fonts/Montserrat-SemiBold.ttf'),
-    'Montserrat-Medium': require('./src/assets/fonts/Montserrat-Medium.ttf'),
-    'Montserrat-Regular': require('./src/assets/fonts/Montserrat-Regular.ttf'),
+    "Montserrat-SemiBold": require("./src/assets/fonts/Montserrat-SemiBold.ttf"),
+    "Montserrat-Medium": require("./src/assets/fonts/Montserrat-Medium.ttf"),
+    "Montserrat-Regular": require("./src/assets/fonts/Montserrat-Regular.ttf"),
   });
 
   useEffect(() => {
@@ -34,21 +35,12 @@ export const App = () => {
     );
   } else {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View>
+      <>
+        <StatusBar style='light' />
+        <Navigation />
+      </>
     );
   }
-}
+};
 
 export default App;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -36,6 +36,7 @@ module.exports = {
     "react/display-name": "off",
     "react/prop-types": "off",
     "no-duplicate-imports": "error",
+    "no-console": ["error", { allow: ["warn"] }],
     semi: ["error", "always"],
     "spaced-comment": "error",
     "react/react-in-jsx-scope": "off",
@@ -50,7 +51,6 @@ module.exports = {
     "react-native/no-unused-styles": "warn",
     "react-native/no-color-literals": "warn",
     "react-native/no-single-element-style-arrays": "warn",
-    "@typescript-eslint/no-unused-vars": "off",
   },
   settings: {
     "import/resolver": {

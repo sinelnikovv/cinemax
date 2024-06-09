@@ -4,11 +4,11 @@
     "slug": "Cinemax",
     "version": "0.1.0",
     "orientation": "portrait",
-    "icon": "./assets/images/logo.png",
+    "icon": "./src/assets/images/logo.png",
     "userInterfaceStyle": "dark",
     "backgroundColor": "#171725",
     "splash": {
-      "image": "./assets/images/splashScreen.png",
+      "image": "./src/assets/images/splashScreen.png",
       "resizeMode": "cover",
       "backgroundColor": "#171725"
     },
@@ -21,7 +21,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/logo.png",
+        "foregroundImage": "./src/assets/images/logo.png",
         "backgroundColor": "#171725"
       }
     },
