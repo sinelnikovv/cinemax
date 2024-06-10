@@ -13,6 +13,7 @@ import { moderateScale } from "react-native-size-matters";
 import Carousel from "react-native-snap-carousel";
 import { ExpandingDot } from "react-native-animated-pagination-dots";
 import OndoardingItem from "./ui/OnboardingItem";
+import { navigate } from "../../navigation/utils";
 
 const onboarding = [
   {
@@ -55,8 +56,9 @@ const Onboarding = () => {
     carouselRef.current?.snapToNext();
     step === 1 && setStep(2);
     step === 2 && setStep(3);
-    step === 3 && setStep(1);
+    step === 3 && navigate("SignUp");
   };
+
   const carouselRef = useRef(null);
   const scrollX = useRef(new Animated.Value(0)).current;
   return (

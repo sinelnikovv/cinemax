@@ -5,6 +5,9 @@ import { View, Image } from "react-native";
 import * as SplashScreen from "expo-splash-screen";
 import "react-native-gesture-handler";
 import Navigation from "./src/navigation";
+import { persistor, store } from "./src/store/store";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -35,10 +38,12 @@ export const App = () => {
     );
   } else {
     return (
-      <>
-        <StatusBar style='light' />
-        <Navigation />
-      </>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <StatusBar style='light' />
+          <Navigation />
+        </PersistGate>
+      </Provider>
     );
   }
 };
