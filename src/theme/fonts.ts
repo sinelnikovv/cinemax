@@ -3,107 +3,107 @@ import colors from "./colors";
 import { moderateScale } from "react-native-size-matters";
 
 const fonts = StyleSheet.create({
-  semibold28: {
+  h1semibold: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-SemiBold",
     fontSize: moderateScale(28),
   },
-  semibold24: {
+  h2semibold: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-SemiBold",
     fontSize: moderateScale(24),
   },
-  semibold18: {
+  h3semibold: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-SemiBold",
     fontSize: moderateScale(18),
   },
-  semibold16: {
+  h4semibold: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-SemiBold",
     fontSize: moderateScale(16),
   },
-  semibold14: {
+  h5semibold: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-SemiBold",
     fontSize: moderateScale(14),
   },
-  semibold12: {
+  h6semibold: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-SemiBold",
     fontSize: moderateScale(12),
   },
-  semibold10: {
+  h7semibold: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-SemiBold",
     fontSize: moderateScale(10),
   },
-  medium28: {
+  h1medium28: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Medium",
     fontSize: moderateScale(28),
   },
-  medium24: {
+  h2medium: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Medium",
     fontSize: moderateScale(24),
   },
-  medium18: {
+  h3medium: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Medium",
     fontSize: moderateScale(18),
   },
-  medium16: {
+  h4medium: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Medium",
     fontSize: moderateScale(16),
   },
-  medium14: {
+  h5medium: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Medium",
     fontSize: moderateScale(14),
   },
-  medium12: {
+  h6medium: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Medium",
     fontSize: moderateScale(12),
   },
-  medium10: {
+  h7medium: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Medium",
     fontSize: moderateScale(10),
   },
-  regular28: {
+  h1regular: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Regular",
     fontSize: moderateScale(28),
   },
-  regular24: {
+  h2regular: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Regular",
     fontSize: moderateScale(24),
   },
-  regular18: {
+  h3regular: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Regular",
     fontSize: moderateScale(18),
   },
-  regular16: {
+  h4regular: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Regular",
     fontSize: moderateScale(16),
   },
-  regular14: {
+  h5regular: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Regular",
     fontSize: moderateScale(14),
   },
-  regular12: {
+  h6regular: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Regular",
     fontSize: moderateScale(12),
   },
-  regular10: {
+  h7regular: {
     color: colors.whiteGrey,
     fontFamily: "Montserrat-Regular",
     fontSize: moderateScale(10),

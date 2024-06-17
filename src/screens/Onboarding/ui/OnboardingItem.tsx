@@ -1,8 +1,8 @@
 import { StyleSheet, View } from "react-native";
-import TextCustom from "../../../components/TextCustom";
 import { moderateScale } from "react-native-size-matters";
 import { colors } from "../../../theme";
 import fonts from "../../../theme/fonts";
+import RegularText from "../../../components/RegularText";
 
 type Props = {
   title: string;
@@ -15,21 +15,21 @@ const OndoardingItem = ({ title, text, img }: Props) => {
     <View style={{ flex: 1 }}>
       {img}
       <View style={styles.textBLock}>
-        <TextCustom
+        <RegularText
           style={{ marginBottom: moderateScale(14) }}
-          font={fonts.semibold24}
+          font={fonts.h2semibold}
           color={colors.white}
           textAlign='center'
         >
           {title}
-        </TextCustom>
-        <TextCustom
-          font={fonts.medium14}
+        </RegularText>
+        <RegularText
+          font={fonts.h5medium}
           color={colors.grey}
           textAlign='center'
         >
           {text}
-        </TextCustom>
+        </RegularText>
       </View>
     </View>
   );

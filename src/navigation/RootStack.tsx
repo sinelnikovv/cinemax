@@ -2,24 +2,32 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { Onboarding } from "../screens/Onboarding";
 import { useAppSelector } from "../hooks/store";
 import { isOnboardingShown } from "../store/slices/onboarding";
-import SignUp from "../screens/SignUp/SignUp";
+import AuthStack from "./AuthStack";
+import MainBottomTab from "./MainBottomTab";
+import { selectUser } from "../store/slices/user";
 
 export type RootStackNavigatorParamList = {
   Onboarding: undefined;
-  SignUp: undefined;
+  AuthStack: undefined;
+  MainBottomTab: undefined;
 };
 
 const Stack = createStackNavigator<RootStackNavigatorParamList>();
 
 const RootStack = () => {
-  const IsOnboardingDone = useAppSelector(isOnboardingShown);
+  const isOnboardingDone = useAppSelector(isOnboardingShown);
+  const userData = useAppSelector(selectUser);
 
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      {!IsOnboardingDone && (
+      {!isOnboardingDone && (
         <Stack.Screen name='Onboarding' component={Onboarding} />
       )}
-      <Stack.Screen name='SignUp' component={SignUp} />
+      {userData.isAuth ? (
+        <Stack.Screen name='MainBottomTab' component={MainBottomTab} />
+      ) : (
+        <Stack.Screen name='AuthStack' component={AuthStack} />
+      )}
     </Stack.Navigator>
   );
 };

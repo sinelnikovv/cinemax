@@ -1,5 +1,6 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import onboardingReducer from "./slices/onboarding";
+import userReducer from "./slices/user";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   FLUSH,
@@ -15,14 +16,18 @@ import {
 const persistConfig = {
   key: "root",
   storage: AsyncStorage,
+  whitelist: ["onboarding", "user"],
 };
 
-const persistedReducer = persistReducer(persistConfig, onboardingReducer);
+const rootReducer = combineReducers({
+  onboarding: onboardingReducer,
+  user: userReducer,
+});
+
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
-  reducer: {
-    onboarding: persistedReducer,
-  },
+  reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
