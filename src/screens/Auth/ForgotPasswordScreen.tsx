@@ -8,68 +8,41 @@ import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
 import { View, StyleSheet } from "react-native";
 import { yupResolver } from "@hookform/resolvers/yup";
-import {
-  PasswordInput,
-  TextInput,
-  TextInputType,
-} from "../../components/inputs";
+import { TextInput, TextInputType } from "../../components/inputs";
 import auth from "@react-native-firebase/auth";
 import Button from "../../components/Button";
 import { useState } from "react";
 import { colors } from "../../theme";
-import { selectUser, setUser } from "../../store/slices/user";
-import { useAppDispatch, useAppSelector } from "../../hooks/store";
 
 type FormData = {
   email: string;
-  password: string;
 };
 
 const schema = yup.object().shape({
   email: yup.string().email("Invalid email").required("Email is required"),
-  password: yup
-    .string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Password is required"),
 });
 
-const LoginScreen = () => {
+const ForgotPasswordScreen = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const { control, handleSubmit } = useForm({
     resolver: yupResolver(schema),
   });
-  const dispatch = useAppDispatch();
-  const user = useAppSelector(selectUser);
 
   const onSubmit = async (data: FormData) => {
     setIsLoading(true);
     auth()
-      .signInWithEmailAndPassword(data.email, data.password)
+      .sendPasswordResetEmail(data.email)
       .then(() => {
-        auth().currentUser &&
-          dispatch(
-            setUser({
-              name: auth().currentUser?.displayName,
-              email: auth().currentUser?.email,
-            }),
-          );
         setIsLoading(false);
-        navigate("MainBottomTab");
+        navigate("CongratsPasswordScreen");
       })
       .catch((error) => {
-        if (error.code === "auth/invalid-credential") {
-          setError("Check email or password!");
+        if (error.code === "auth/user-not-found") {
+          setError("User not found!");
           control.setError("email", {
             message: "error",
           });
-          control.setError("password", {
-            message: "error",
-          });
-        }
-
-        if (error.code === "auth/too-many-requests") {
-          setError("Too many requests, try again later!");
         }
       });
   };
@@ -77,13 +50,13 @@ const LoginScreen = () => {
   return (
     <ScreenContainer
       scroll={true}
-      header={<Header title='Login' onPress={() => goBack()} />}
+      header={<Header title='' onPress={() => goBack()} />}
     >
       <RegularText
         font={fonts.h2semibold}
         style={{ marginTop: moderateScale(40), marginBottom: moderateScale(8) }}
       >
-        {user.name ? `Hi, ${user.name}` : "Hi there!"}
+        Reset Password
       </RegularText>
       <RegularText
         font={fonts.h6medium}
@@ -92,13 +65,12 @@ const LoginScreen = () => {
           marginBottom: moderateScale(64),
         }}
       >
-        Welcome back! Please enter your details.
+        Recover your account password
       </RegularText>
       <View style={styles.container}>
         <Controller
           control={control}
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          render={({ field: { ref, ...field }, fieldState: { error } }) => (
+          render={({ field: { ...field }, fieldState: { error } }) => (
             <TextInput
               {...field}
               placeholder='Email Address'
@@ -108,36 +80,12 @@ const LoginScreen = () => {
           )}
           name='email'
         />
-        <Controller
-          control={control}
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
-          render={({ field: { ref, ...field }, fieldState: { error } }) => (
-            <PasswordInput
-              {...field}
-              placeholder='Password'
-              error={error?.message}
-            />
-          )}
-          name='password'
-        />
-        <Button
-          type='text'
-          textStyle={[fonts.h6medium]}
-          containerStyle={{
-            alignSelf: "flex-end",
-            marginTop: -moderateScale(32),
-          }}
-          isLoading={isLoading}
-          onPress={() => navigate("ForgotPasswordScreen")}
-        >
-          Forgot Password?
-        </Button>
         <Button
           isLoading={isLoading}
           size='lg'
           onPress={handleSubmit(onSubmit)}
         >
-          Login
+          Next
         </Button>
         {error ? (
           <RegularText
@@ -156,7 +104,7 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;
+export default ForgotPasswordScreen;
 
 const styles = StyleSheet.create({
   container: {
