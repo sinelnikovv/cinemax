@@ -101,7 +101,8 @@ const SignUpScreen = () => {
       <View style={styles.container}>
         <Controller
           control={control}
-          render={({ field: { ...field }, fieldState: { error } }) => (
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          render={({ field: { ref, ...field }, fieldState: { error } }) => (
             <TextInput
               {...field}
               placeholder='Full name'
@@ -113,7 +114,8 @@ const SignUpScreen = () => {
         />
         <Controller
           control={control}
-          render={({ field: { ...field }, fieldState: { error } }) => (
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          render={({ field: { ref, ...field }, fieldState: { error } }) => (
             <TextInput
               {...field}
               placeholder='Email Address'
@@ -125,7 +127,8 @@ const SignUpScreen = () => {
         />
         <Controller
           control={control}
-          render={({ field: { ...field }, fieldState: { error } }) => (
+          // eslint-disable-next-line @typescript-eslint/no-unused-vars
+          render={({ field: { ref, ...field }, fieldState: { error } }) => (
             <PasswordInput
               {...field}
               placeholder='Password'
@@ -134,11 +137,11 @@ const SignUpScreen = () => {
           )}
           name='password'
         />
-
         <Controller
           control={control}
           render={({
-            field: { onChange, value, ...field },
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            field: { ref, onChange, value, ...field },
             fieldState: { error },
           }) => (
             <View style={{ flexDirection: "row" }}>
@@ -162,7 +165,6 @@ const SignUpScreen = () => {
           )}
           name='checkbox'
         />
-
         <Button
           isLoading={isLoading}
           size='lg'
@@ -180,13 +182,6 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-  },
-  input: {
-    height: 40,
-    borderColor: "gray",
-    borderWidth: 1,
-    marginBottom: 10,
-    padding: 10,
   },
   error: {
     color: "red",

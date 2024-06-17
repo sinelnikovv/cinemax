@@ -1,5 +1,6 @@
 import {
   ActivityIndicator,
+  StyleProp,
   StyleSheet,
   TextStyle,
   TouchableOpacity,
@@ -12,7 +13,7 @@ import { colors } from "../theme";
 type Props = {
   children: React.ReactNode;
   type?: "filled" | "outlined" | "text";
-  textStyle?: TextStyle;
+  textStyle?: StyleProp<TextStyle>;
   containerStyle?: ViewStyle;
   size?: "xsm" | "sm" | "md" | "lg" | "xlg";
   onPress: () => void;
@@ -49,7 +50,6 @@ const Button = ({
         <RegularText
           color={type === "filled" ? colors.white : colors.blue}
           style={textStyle}
-          size={16}
         >
           {children}
         </RegularText>
