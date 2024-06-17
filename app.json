@@ -4,7 +4,7 @@
     "slug": "Cinemax",
     "version": "0.1.0",
     "orientation": "portrait",
-    "icon": "./src/assets/images/logo.png",
+    "icon": "./src/assets/images/appIcon.png",
     "userInterfaceStyle": "dark",
     "backgroundColor": "#171725",
     "splash": {
@@ -14,19 +14,36 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.sinelnikov.cinemax"
+      "bundleIdentifier": "com.sinelnikov.cinemax",
+      "googleServicesFile": "./firebase/GoogleService-Info.plist"
     },
     "androidStatusBar": {
       "translucent": true
     },
     "android": {
+      "package": "com.sinelnikov.cinemax",
+      "googleServicesFile": "./firebase/google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/logo.png",
         "backgroundColor": "#171725"
       }
     },
     "plugins": [
-      "expo-font"
-    ]
+      "expo-font",
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ],
+    "packagerOpts": {
+      "sourceExts": ["js", "jsx", "svgx"],
+      "transformer": "node_modules/react-native-svg-transformer/index.js"
+    }
   }
 }

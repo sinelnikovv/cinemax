@@ -1,8 +1,10 @@
-import { StyleProp, TextStyle, Text } from "react-native";
+import { StyleProp, TextStyle } from "react-native";
 import { colors } from "../theme";
 import fonts from "../theme/fonts";
+import Animated from "react-native-reanimated";
+import { moderateScale } from "react-native-size-matters";
 type Props = {
-  font: {
+  font?: {
     color: string;
     fontFamily: string;
     fontSize: number;
@@ -11,28 +13,31 @@ type Props = {
   textAlign?: "auto" | "left" | "right" | "center" | "justify";
   children: React.ReactNode | JSX.Element[] | JSX.Element;
   style?: StyleProp<TextStyle>;
+  size?: number;
 };
-const TextCustom = ({
-  font = fonts.regular14,
+const RegularText = ({
+  font = fonts.h5regular,
   color = colors.white,
   textAlign = "center",
   children,
   style,
+  size,
 }: Props) => {
   return (
-    <Text
+    <Animated.Text
       style={[
         font,
+        style,
         {
           color: color,
           textAlign: textAlign,
         },
-        style,
+        size && { fontSize: moderateScale(size) },
       ]}
     >
       {children}
-    </Text>
+    </Animated.Text>
   );
 };
 
-export default TextCustom;
+export default RegularText;

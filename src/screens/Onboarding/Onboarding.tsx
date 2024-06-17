@@ -56,50 +56,51 @@ const Onboarding = () => {
     carouselRef.current?.snapToNext();
     step === 1 && setStep(2);
     step === 2 && setStep(3);
-    step === 3 && navigate("SignUp");
+    step === 3 && navigate("AuthStack");
   };
 
   const carouselRef = useRef(null);
   const scrollX = useRef(new Animated.Value(0)).current;
   return (
-    <ScreenContainer background={colors.black}>
-      <View style={styles.container}>
-        <Carousel
-          layoutCardOffset={0}
-          ref={carouselRef}
-          inactiveSlideScale={1}
-          scrollEnabled={false}
+    <ScreenContainer
+      scroll={false}
+      sideBorder={false}
+      background={colors.black}
+    >
+      <Carousel
+        layoutCardOffset={0}
+        ref={carouselRef}
+        inactiveSlideScale={1}
+        scrollEnabled={false}
+        data={onboarding}
+        sliderWidth={width}
+        itemWidth={width}
+        renderItem={({ item }) => <OndoardingItem {...item} />}
+        vertical={false}
+        onScroll={Animated.event(
+          [{ nativeEvent: { contentOffset: { x: scrollX } } }],
+          {
+            useNativeDriver: false,
+          },
+        )}
+      />
+      <View style={styles.button}>
+        <ExpandingDot
+          containerStyle={styles.pagination}
+          dotStyle={{ width: moderateScale(10), height: moderateScale(10) }}
           data={onboarding}
-          sliderWidth={width}
-          itemWidth={width}
-          renderItem={({ item }) => <OndoardingItem {...item} />}
-          vertical={false}
-          onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { x: scrollX } } }],
-            {
-              useNativeDriver: false,
-            },
-          )}
+          scrollX={scrollX}
+          inActiveDotOpacity={0.4}
+          inActiveDotColor={colors.blue}
+          activeDotColor={colors.blue}
+          expandingDotWidth={moderateScale(32)}
         />
-
-        <View style={styles.button}>
-          <ExpandingDot
-            containerStyle={styles.pagination}
-            dotStyle={{ width: moderateScale(10), height: moderateScale(10) }}
-            data={onboarding}
-            scrollX={scrollX}
-            inActiveDotOpacity={0.4}
-            inActiveDotColor={colors.blue}
-            activeDotColor={colors.blue}
-            expandingDotWidth={moderateScale(32)}
-          />
-          <NextButton
-            step={step}
-            setStep={setStep}
-            onButtonPress={onButtonPress}
-            style={styles.nextBtn}
-          />
-        </View>
+        <NextButton
+          step={step}
+          setStep={setStep}
+          onButtonPress={onButtonPress}
+          style={styles.nextBtn}
+        />
       </View>
     </ScreenContainer>
   );
@@ -108,9 +109,6 @@ const Onboarding = () => {
 export default Onboarding;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   button: {
     position: "absolute",
     left: 0,
