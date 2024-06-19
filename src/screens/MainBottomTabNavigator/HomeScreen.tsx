@@ -4,7 +4,6 @@ import RegularText from "../../components/RegularText";
 import { navigate } from "../../navigation/utils";
 import { useAppDispatch } from "../../hooks/store";
 import { clearUser } from "../../store/slices/user";
-
 const HomeScreen = () => {
   const dispatch = useAppDispatch();
 
