@@ -53,14 +53,12 @@ const SignUpScreen = () => {
         }),
       )
       .then(() => {
-        auth().currentUser &&
-          dispatch(
-            setUser({
-              name: auth().currentUser?.displayName,
-              email: auth().currentUser?.email,
-              auth: true,
-            }),
-          );
+        dispatch(
+          setUser({
+            name: data.name,
+            email: data.email,
+          }),
+        );
         setIsLoading(false);
         navigate("MainBottomTab");
       })
