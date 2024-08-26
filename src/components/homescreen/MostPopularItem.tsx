@@ -7,15 +7,30 @@ import { StyleSheet, View, Image } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import RegularText from "../shared/RegularText";
 import { genreIdToName } from "@src/utils/formatting";
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import { useState } from "react";
 
 const MostPopularItem = (item: searchMovieResult) => {
   const { data: allGenres } = useGetGenresQuery();
   const { data, isLoading } = useGetImageQuery({ id: item.id });
+  const [isLoadedImg, setIsLoadedImg] = useState(false);
 
   return (
     <View style={styles.container}>
       {!isLoading ? (
         <>
+          {!isLoadedImg && (
+            <SkeletonPlaceholder>
+              <SkeletonPlaceholder.Item>
+                <View
+                  style={{
+                    width: moderateScale(135),
+                    height: moderateScale(178),
+                  }}
+                ></View>
+              </SkeletonPlaceholder.Item>
+            </SkeletonPlaceholder>
+          )}
           <Image
             resizeMode='cover'
             width={moderateScale(135)}
@@ -23,6 +38,8 @@ const MostPopularItem = (item: searchMovieResult) => {
             source={{
               uri: `https://image.tmdb.org/t/p/w780${data.posters[0].file_path}`,
             }}
+            onLoadEnd={() => setIsLoadedImg(true)}
+            style={isLoadedImg ? {} : { opacity: 0 }}
           />
           <View style={styles.textBlock}>
             <RegularText

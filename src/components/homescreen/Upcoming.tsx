@@ -23,50 +23,49 @@ const Upcoming = () => {
     }).start();
   };
 
-  return isLoading ? (
-    <View>
-      <ActivityIndicator />
-    </View>
-  ) : (
+  return (
     <View style={styles.container}>
-      <Carousel
-        data={dataToShow}
-        keyExtractor={(data) => data.id.toString()}
-        sliderWidth={layout.width}
-        itemWidth={layout.width - moderateScale(80)}
-        autoplay={false}
-        autoplayInterval={5000}
-        enableMomentum={false}
-        lockScrollWhileSnapping={true}
-        renderItem={({ item, index }) => (
-          <UpcomingItem {...item} index={index} />
-        )}
-        onBeforeSnapToItem={handleBeforeSnapToItem}
-      />
-      <ExpandingDot
-        containerStyle={styles.pagination}
-        dotStyle={{ width: moderateScale(10), height: moderateScale(10) }}
-        data={dataToShow}
-        scrollX={scrollX}
-        inActiveDotOpacity={0.4}
-        inActiveDotColor={colors.blue}
-        activeDotColor={colors.blue}
-        expandingDotWidth={moderateScale(32)}
-      />
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <>
+          <Carousel
+            data={dataToShow}
+            keyExtractor={(data) => data.id.toString()}
+            sliderWidth={layout.width}
+            itemWidth={layout.width - moderateScale(80)}
+            autoplay={false}
+            autoplayInterval={5000}
+            enableMomentum={false}
+            lockScrollWhileSnapping={true}
+            renderItem={({ item, index }) => (
+              <UpcomingItem {...item} index={index} />
+            )}
+            onBeforeSnapToItem={handleBeforeSnapToItem}
+          />
+          <ExpandingDot
+            containerStyle={styles.pagination}
+            dotStyle={{ width: moderateScale(10), height: moderateScale(10) }}
+            data={dataToShow}
+            scrollX={scrollX}
+            inActiveDotOpacity={0.4}
+            inActiveDotColor={colors.blue}
+            activeDotColor={colors.blue}
+            expandingDotWidth={moderateScale(32)}
+          />
+        </>
+      )}
     </View>
   );
 };
-
 export default Upcoming;
 
 const styles = StyleSheet.create({
   container: {
     marginTop: moderateScale(24),
-  },
-  image: {
-    width: "100%",
-    height: 200,
-    marginBottom: 16,
+    height: moderateScale(175),
+    alignItems: "center",
+    justifyContent: "center",
   },
   pagination: {
     bottom: -moderateScale(26),
