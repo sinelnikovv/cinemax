@@ -13,7 +13,7 @@
       "backgroundColor": "#171725"
     },
     "ios": {
-      "supportsTablet": true,
+      "supportsTablet": false,
       "bundleIdentifier": "com.sinelnikov.cinemax",
       "googleServicesFile": "./firebase/GoogleService-Info.plist"
     },
@@ -24,7 +24,7 @@
       "package": "com.sinelnikov.cinemax",
       "googleServicesFile": "./firebase/google-services.json",
       "adaptiveIcon": {
-        "foregroundImage": "./src/assets/images/logo.png",
+        "foregroundImage": "./src/assets/images/appIcon.png",
         "backgroundColor": "#171725"
       }
     },

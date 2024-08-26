@@ -1,6 +1,6 @@
 import Svg, { Path } from "react-native-svg";
 
-const HomeIcon = ({ color }) => {
+const FavouritesIcon = ({ color }) => {
   return (
     <Svg width={24} height={24} viewBox='0 0 24 24' fill='none'>
       <Path
@@ -11,4 +11,4 @@ const HomeIcon = ({ color }) => {
   );
 };
 
-export default HomeIcon;
+export default FavouritesIcon;

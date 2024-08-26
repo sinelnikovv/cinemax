@@ -1,19 +1,19 @@
 import React from "react";
 import { View, TouchableOpacity, StyleSheet } from "react-native";
-import { colors } from "../theme";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { moderateScale } from "react-native-size-matters";
-import RegularText from "../components/RegularText";
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
 } from "react-native-reanimated";
-import { navigate } from "./utils";
-import UserIcon from "../assets/images/UserIcon";
-import HomeIcon from "../assets/images/HomeIcon";
-import SearchIcon from "../assets/images/SearchIcon";
-import FavouritesIcon from "../assets/images/FavouritesIcon";
+import UserIcon from "@assets/images/UserIcon";
+import HomeIcon from "@assets/images/HomeIcon";
+import SearchIcon from "@assets/images/SearchIcon";
+import FavouritesIcon from "@assets/images/FavouritesIcon";
+import { colors } from "@src/theme";
+import RegularText from "@src/components/shared/RegularText";
+import { navigate } from "@src/utils/navigation";
 
 const TabBar = ({ state, descriptors, navigation }) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -36,7 +36,7 @@ const TabBar = ({ state, descriptors, navigation }) => {
         backgroundColor: colors.dark,
         paddingTop: moderateScale(16),
         paddingBottom: insets.bottom,
-        paddingHorizontal: moderateScale(16),
+        paddingHorizontal: moderateScale(20),
         position: "relative",
       }}
     >

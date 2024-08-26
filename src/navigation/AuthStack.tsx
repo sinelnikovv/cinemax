@@ -1,9 +1,11 @@
 import { createStackNavigator } from "@react-navigation/stack";
-import IntroScreen from "../screens/Auth/IntroScreen";
-import LoginScreen from "../screens/Auth/LoginScreen";
-import SignUpScreen from "../screens/Auth/SignUpScreen";
-import ForgotPasswordScreen from "../screens/Auth/ForgotPasswordScreen";
-import CongratsPasswordScreen from "../screens/Auth/CongratsPasswordScreen";
+import {
+  CongratsPasswordScreen,
+  ForgotPasswordScreen,
+  IntroScreen,
+  LoginScreen,
+  SignUpScreen,
+} from "@src/screens";
 
 export type AuthStackNavigatorParamList = {
   IntroScreen: undefined;
