@@ -45,14 +45,13 @@ const LoginScreen = () => {
     setIsLoading(true);
     auth()
       .signInWithEmailAndPassword(data.email, data.password)
-      .then(() => {
-        auth().currentUser &&
-          dispatch(
-            setUser({
-              name: auth().currentUser?.displayName,
-              email: auth().currentUser?.email,
-            }),
-          );
+      .then((data) => {
+        dispatch(
+          setUser({
+            name: data.user.displayName,
+            email: data.user.email,
+          }),
+        );
         setIsLoading(false);
         navigate("MainBottomTab");
       })
@@ -67,9 +66,10 @@ const LoginScreen = () => {
             message: "error",
           });
         }
-
         if (error.code === "auth/too-many-requests") {
           setError("Too many requests, try again later!");
+        } else {
+          setError("Something went wrong, try later!");
         }
       });
   };
@@ -83,7 +83,7 @@ const LoginScreen = () => {
         font={fonts.h2semibold}
         style={{ marginTop: moderateScale(40), marginBottom: moderateScale(8) }}
       >
-        {user.name ? `Hi, ${user.name}` : "Hi there!"}
+        {user?.name ? `Hi, ${user.name}` : "Hi there!"}
       </RegularText>
       <RegularText
         font={fonts.h6medium}
@@ -127,7 +127,6 @@ const LoginScreen = () => {
             alignSelf: "flex-end",
             marginTop: -moderateScale(16),
           }}
-          isLoading={isLoading}
           onPress={() => navigate("ForgotPasswordScreen")}
         >
           Forgot Password?
