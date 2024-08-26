@@ -1,8 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
-import RootStack from "./RootStack";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import React from "react";
-import { navigationRef } from "./utils";
+import { navigationRef } from "@src/utils/navigation";
+import RootStack from "./RootStack";
 
 const Navigation = () => {
   return (
