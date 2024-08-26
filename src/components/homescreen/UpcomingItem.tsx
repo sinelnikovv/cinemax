@@ -1,19 +1,37 @@
 import { Movie } from "@src/store/types";
-import { colors, fonts } from "@src/theme";
+import { colors, fonts, layout } from "@src/theme";
 import { StyleSheet, View, Image } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import RegularText from "../shared/RegularText";
 import { formattedDateForUpcoming } from "@src/utils/formatting";
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import { useState } from "react";
 
 const UpcomingItem = (item: Movie) => {
+  const [isLoadedImg, setIsLoadedImg] = useState(false);
   return (
     <View style={styles.container}>
+      {!isLoadedImg && (
+        <SkeletonPlaceholder>
+          <SkeletonPlaceholder.Item>
+            <View
+              style={{
+                width: layout.width - moderateScale(80),
+                height: moderateScale(165),
+              }}
+            ></View>
+          </SkeletonPlaceholder.Item>
+        </SkeletonPlaceholder>
+      )}
       <Image
-        resizeMode='contain'
+        resizeMode='cover'
         source={{
           uri: `https://image.tmdb.org/t/p/w780${item.backdrop_path}`,
         }}
-        style={styles.image}
+        width={layout.width - moderateScale(80)}
+        height={moderateScale(165)}
+        onLoadEnd={() => setIsLoadedImg(true)}
+        style={isLoadedImg ? {} : { opacity: 0 }}
       />
       <View style={styles.textBlock}>
         <RegularText style={styles.text} font={fonts.h4semibold}>
@@ -37,10 +55,6 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     alignItems: "center",
     justifyContent: "center",
-  },
-  image: {
-    width: "100%",
-    height: "100%",
   },
   textBlock: {
     position: "absolute",
