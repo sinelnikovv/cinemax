@@ -4,9 +4,10 @@ import { selectUser } from "@src/store/slices/user";
 import MainBottomTab from "./MainBottomTab";
 import AuthStack from "./AuthStack";
 import { OnboardingScreen } from "@src/screens";
+import { Routes } from "./routes";
 
 export type RootStackNavigatorParamList = {
-  Onboarding: undefined;
+  [Routes.Onboarding]: undefined;
   AuthStack: undefined;
   MainBottomTab: undefined;
 };
@@ -22,7 +23,7 @@ const RootStack = () => {
         <Stack.Screen name='MainBottomTab' component={MainBottomTab} />
       ) : (
         <>
-          <Stack.Screen name='Onboarding' component={OnboardingScreen} />
+          <Stack.Screen name={Routes.Onboarding} component={OnboardingScreen} />
           <Stack.Screen name='AuthStack' component={AuthStack} />
         </>
       )}

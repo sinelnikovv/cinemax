@@ -18,6 +18,7 @@ import {
   TextInputType,
 } from "@src/components/shared/inputs";
 import Button from "@src/components/shared/Button";
+import { Routes } from "@src/navigation/routes";
 
 type FormData = {
   email: string;
@@ -53,7 +54,7 @@ const LoginScreen = () => {
           }),
         );
         setIsLoading(false);
-        navigate("MainBottomTab");
+        navigate(Routes.Home);
       })
       .catch((error) => {
         setIsLoading(false);
@@ -127,7 +128,7 @@ const LoginScreen = () => {
             alignSelf: "flex-end",
             marginTop: -moderateScale(16),
           }}
-          onPress={() => navigate("ForgotPasswordScreen")}
+          onPress={() => navigate(Routes.ForgotPassword)}
         >
           Forgot Password?
         </Button>

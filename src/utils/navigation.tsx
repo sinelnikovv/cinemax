@@ -14,7 +14,6 @@ export const navigationRef =
   React.createRef<NavigationContainerRef<ParamList>>();
 
 export function navigate(name: RouteName, params?: any) {
-  // @ts-ignore: pretty difficult to create a type and therefore it is limited to a description of the name
   navigationRef.current?.navigate(name, params);
 }
 

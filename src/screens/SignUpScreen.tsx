@@ -19,6 +19,7 @@ import {
   TextInputType,
 } from "@src/components/shared/inputs";
 import Button from "@src/components/shared/Button";
+import { Routes } from "@src/navigation/routes";
 
 type FormData = {
   name: string;
@@ -60,7 +61,7 @@ const SignUpScreen = () => {
           }),
         );
         setIsLoading(false);
-        navigate("MainBottomTab");
+        navigate(Routes.Home);
       })
       .catch((error) => {
         if (error.code === "auth/email-already-in-use") {

@@ -2,12 +2,13 @@ import Button from "@src/components/shared/Button";
 import Header from "@src/components/shared/Header";
 import RegularText from "@src/components/shared/RegularText";
 import ScreenContainer from "@src/components/shared/ScreenContainer";
+import { Routes } from "@src/navigation/routes";
 import { fonts } from "@src/theme";
 import { goBack, navigate } from "@src/utils/navigation";
 import { View } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 
-const CongratsPasswordScreen = () => {
+const ResetPasswordScreen = () => {
   return (
     <ScreenContainer
       scroll={true}
@@ -38,7 +39,7 @@ const CongratsPasswordScreen = () => {
         <Button
           size='xlg'
           onPress={() => {
-            navigate("LoginScreen");
+            navigate(Routes.Login);
           }}
         >
           Go to Login Page
@@ -48,4 +49,4 @@ const CongratsPasswordScreen = () => {
   );
 };
 
-export default CongratsPasswordScreen;
+export default ResetPasswordScreen;
