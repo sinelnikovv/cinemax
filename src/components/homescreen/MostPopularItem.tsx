@@ -20,16 +20,18 @@ const MostPopularItem = (item: searchMovieResult) => {
       {!isLoading ? (
         <>
           {!isLoadedImg && (
-            <SkeletonPlaceholder>
-              <SkeletonPlaceholder.Item>
-                <View
-                  style={{
-                    width: moderateScale(135),
-                    height: moderateScale(178),
-                  }}
-                ></View>
-              </SkeletonPlaceholder.Item>
-            </SkeletonPlaceholder>
+            <View style={{ position: "absolute" }}>
+              <SkeletonPlaceholder>
+                <SkeletonPlaceholder.Item>
+                  <View
+                    style={{
+                      width: moderateScale(135),
+                      height: moderateScale(178),
+                    }}
+                  ></View>
+                </SkeletonPlaceholder.Item>
+              </SkeletonPlaceholder>
+            </View>
           )}
           <Image
             resizeMode='cover'

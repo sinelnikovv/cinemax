@@ -7,6 +7,21 @@ import { useAppDispatch, useAppSelector } from "@src/hooks/store";
 import RegularText from "../shared/RegularText";
 import { selectedGenre, setGenre } from "@src/store/slices/selectedGenreSlice";
 
+const ListHeaderComponent = () => {
+  const selected = useAppSelector(selectedGenre);
+  const dispatch = useAppDispatch();
+  return (
+    <CategoryItem
+      onPress={() => dispatch(setGenre({ name: "All", id: "All" }))}
+      isSelected={selected.name === "All"}
+      item={{
+        name: "All",
+        id: 0,
+      }}
+    />
+  );
+};
+
 const Categories = () => {
   const { data } = useGetGenresQuery();
   const selected = useAppSelector(selectedGenre);
@@ -24,16 +39,7 @@ const Categories = () => {
           horizontal
           keyExtractor={(item) => item.id.toString()}
           data={data.genres}
-          ListHeaderComponent={() => (
-            <CategoryItem
-              onPress={() => dispatch(setGenre({ name: "All", id: "All" }))}
-              isSelected={selected.name === "All"}
-              item={{
-                name: "All",
-                id: 0,
-              }}
-            />
-          )}
+          ListHeaderComponent={ListHeaderComponent}
           renderItem={({ item }) => (
             <CategoryItem
               onPress={() => dispatch(setGenre(item))}
