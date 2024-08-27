@@ -6,6 +6,7 @@ import { colors, fonts } from "@src/theme";
 import RegularText from "@src/components/shared/RegularText";
 import Button from "@src/components/shared/Button";
 import { navigate } from "@src/utils/navigation";
+import { Routes } from "@src/navigation/routes";
 
 const IntroScreen = () => {
   return (
@@ -31,7 +32,7 @@ const IntroScreen = () => {
           </RegularText>
         </View>
         <Button
-          onPress={() => navigate("SignUpScreen")}
+          onPress={() => navigate(Routes.SignUp)}
           containerStyle={styles.btn}
           size='xlg'
         >
@@ -52,7 +53,7 @@ const IntroScreen = () => {
             containerStyle={{ paddingHorizontal: 8 }}
             type='text'
             size='xlg'
-            onPress={() => navigate("LoginScreen")}
+            onPress={() => navigate(Routes.Login)}
           >
             Login
           </Button>

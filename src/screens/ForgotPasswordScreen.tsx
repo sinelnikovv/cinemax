@@ -12,6 +12,7 @@ import RegularText from "@src/components/shared/RegularText";
 import { colors, fonts } from "@src/theme";
 import { TextInput, TextInputType } from "@src/components/shared/inputs";
 import Button from "@src/components/shared/Button";
+import { Routes } from "@src/navigation/routes";
 
 type FormData = {
   email: string;
@@ -34,7 +35,7 @@ const ForgotPasswordScreen = () => {
       .sendPasswordResetEmail(data.email)
       .then(() => {
         setIsLoading(false);
-        navigate("CongratsPasswordScreen");
+        navigate(Routes.ResetPassword);
       })
       .catch((error) => {
         if (error.code === "auth/user-not-found") {

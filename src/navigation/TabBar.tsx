@@ -14,6 +14,7 @@ import FavouritesIcon from "@assets/images/FavouritesIcon";
 import { colors } from "@src/theme";
 import RegularText from "@src/components/shared/RegularText";
 import { navigate } from "@src/utils/navigation";
+import { Routes } from "./routes";
 
 const TabBar = ({ state, descriptors, navigation }) => {
   const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -88,12 +89,12 @@ const TabBar = ({ state, descriptors, navigation }) => {
             key={route.name}
           >
             <Animated.View style={[styles.tab, tabStyle]}>
-              {route.name === "Home" && <HomeIcon color={iconColor} />}
-              {route.name === "Search" && <SearchIcon color={iconColor} />}
-              {route.name === "Favourites" && (
+              {route.name === Routes.Home && <HomeIcon color={iconColor} />}
+              {route.name === Routes.Search && <SearchIcon color={iconColor} />}
+              {route.name === Routes.Favourites && (
                 <FavouritesIcon color={iconColor} />
               )}
-              {route.name === "Settings" && <UserIcon color={iconColor} />}
+              {route.name === Routes.Settings && <UserIcon color={iconColor} />}
               <Animated.View style={[labelStyle, { justifyContent: "center" }]}>
                 <RegularText
                   color={colors.blue}

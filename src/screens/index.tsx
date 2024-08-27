@@ -1,4 +1,4 @@
-export { default as CongratsPasswordScreen } from "./CongratsPasswordScreen";
+export { default as ResetPasswordScreen } from "./ResetPasswordScreen";
 export { default as ForgotPasswordScreen } from "./ForgotPasswordScreen";
 export { default as IntroScreen } from "./IntroScreen";
 export { default as LoginScreen } from "./LoginScreen";
