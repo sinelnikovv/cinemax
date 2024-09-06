@@ -1,5 +1,5 @@
 import { useAppSelector } from "@src/hooks/store";
-import { useGetMoviesQuery } from "@src/store/slices/searchSlice";
+import { useGetSearchMoviesQuery } from "@src/store/slices/apiSlice";
 import { selectedGenre } from "@src/store/slices/selectedGenreSlice";
 import { StyleSheet, View } from "react-native";
 import MostPopularItem from "./MostPopularItem";
@@ -12,7 +12,7 @@ import RegularText from "../shared/RegularText";
 const MostPopular = () => {
   const selected = useAppSelector(selectedGenre);
 
-  const { data } = useGetMoviesQuery({
+  const { data } = useGetSearchMoviesQuery({
     include_adult: true,
     page: 1,
     sort_by: "popularity.desc",

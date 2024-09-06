@@ -1,4 +1,4 @@
-import { useGetGenresQuery } from "@src/store/slices/genresSlice";
+import { useGetGenresQuery } from "@src/store/slices/apiSlice";
 import { FlatList, StyleSheet, View } from "react-native";
 import CategoryItem from "./CategoryItem";
 import { fonts } from "@src/theme";

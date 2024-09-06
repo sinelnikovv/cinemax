@@ -22,8 +22,8 @@ import Clock from "@assets/images/clock.svg";
 import Cube from "@assets/images/cube.svg";
 import {
   useGetCastQuery,
-  useGetMovieQuery,
-} from "@src/store/slices/upcomingSlice";
+  useGetMovieDetailsQuery,
+} from "@src/store/slices/apiSlice";
 import { BlurView } from "expo-blur";
 import CastItem from "@src/components/MovieScreen/CastItem";
 import { useState } from "react";
@@ -34,7 +34,9 @@ type Props = RootStackNavigatorScreenProps<Routes.Movie>;
 const MovieScreen = ({ route }: Props) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);
   const id = route.params.id;
-  const { data: movie, isLoading: isLoadingMovie } = useGetMovieQuery({ id });
+  const { data: movie, isLoading: isLoadingMovie } = useGetMovieDetailsQuery({
+    id,
+  });
   const { data: cast, isLoading: isLoadingCast } = useGetCastQuery({
     id,
   });

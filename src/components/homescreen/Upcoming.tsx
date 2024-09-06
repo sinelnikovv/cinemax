@@ -1,4 +1,4 @@
-import { useGetUpcomingQuery } from "@src/store/slices/upcomingSlice";
+import { useGetUpcomingQuery } from "@src/store/slices/apiSlice";
 import { StyleSheet, View, ActivityIndicator, Animated } from "react-native";
 import Carousel from "react-native-snap-carousel";
 import { colors, layout } from "@src/theme";

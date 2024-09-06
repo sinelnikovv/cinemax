@@ -1,4 +1,4 @@
-import { useGetGenresQuery } from "@src/store/slices/genresSlice";
+import { useGetGenresQuery } from "@src/store/slices/apiSlice";
 import { searchMovieResult } from "@src/store/types";
 import { colors, fonts } from "@src/theme";
 import { BlurView } from "expo-blur";
@@ -16,7 +16,6 @@ const MostPopularItem = (item: searchMovieResult) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);
   const imgPath = `https://image.tmdb.org/t/p/w780${item.poster_path}`;
   const movieGenre = genreIdToName(allGenres, item.genre_ids[0]);
-  console.log(item);
 
   return (
     <TouchableOpacity

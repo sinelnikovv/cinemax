@@ -2,10 +2,8 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { persistReducer, persistStore } from "redux-persist";
 import userReducer from "./slices/user";
-import { upcomingSlice } from "./slices/upcomingSlice";
-import { genresSlice } from "./slices/genresSlice";
+import { apiSlice } from "./slices/apiSlice";
 import selectedGenreReducer from "./slices/selectedGenreSlice";
-import searchSlice from "./slices/searchSlice";
 
 const persistConfig = {
   key: "root",
@@ -15,9 +13,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   user: userReducer,
-  [upcomingSlice.reducerPath]: upcomingSlice.reducer,
-  [genresSlice.reducerPath]: genresSlice.reducer,
-  [searchSlice.reducerPath]: searchSlice.reducer,
+  [apiSlice.reducerPath]: apiSlice.reducer,
   selectedGenre: selectedGenreReducer,
 });
 
@@ -26,10 +22,9 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({ serializableCheck: false })
-      .concat(upcomingSlice.middleware)
-      .concat(genresSlice.middleware)
-      .concat(searchSlice.middleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(
+      apiSlice.middleware,
+    ),
 });
 
 export const persistor = persistStore(store);
