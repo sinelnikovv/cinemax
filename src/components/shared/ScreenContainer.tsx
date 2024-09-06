@@ -24,6 +24,7 @@ type Props = {
     | "always"
     | "never"
     | undefined;
+  useInsets?: boolean;
 };
 
 const ScreenContainer = ({
@@ -34,6 +35,7 @@ const ScreenContainer = ({
   scroll = true,
   enableKeyboardAvoidView = true,
   keyboardShouldPersistTaps = "handled",
+  useInsets = true,
 }: Props) => {
   const insets = useSafeAreaInsets();
   const [scrollViewHeight, setScrollViewHeight] = useState(0);
@@ -42,8 +44,9 @@ const ScreenContainer = ({
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
       style={[
-        { flex: 1, paddingTop: insets.top, backgroundColor: colors.dark },
+        { flex: 1, backgroundColor: colors.dark },
         sideBorder && { paddingHorizontal: moderateScale(16) },
+        useInsets && { paddingTop: insets.top, paddingBottom: insets.bottom },
         background && { backgroundColor: background },
       ]}
       enabled={enableKeyboardAvoidView}

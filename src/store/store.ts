@@ -6,7 +6,6 @@ import { upcomingSlice } from "./slices/upcomingSlice";
 import { genresSlice } from "./slices/genresSlice";
 import selectedGenreReducer from "./slices/selectedGenreSlice";
 import searchSlice from "./slices/searchSlice";
-import { imageSlice } from "./slices/imageSlice";
 
 const persistConfig = {
   key: "root",
@@ -19,7 +18,6 @@ const rootReducer = combineReducers({
   [upcomingSlice.reducerPath]: upcomingSlice.reducer,
   [genresSlice.reducerPath]: genresSlice.reducer,
   [searchSlice.reducerPath]: searchSlice.reducer,
-  [imageSlice.reducerPath]: imageSlice.reducer,
   selectedGenre: selectedGenreReducer,
 });
 
@@ -31,8 +29,7 @@ export const store = configureStore({
     getDefaultMiddleware({ serializableCheck: false })
       .concat(upcomingSlice.middleware)
       .concat(genresSlice.middleware)
-      .concat(searchSlice.middleware)
-      .concat(imageSlice.middleware),
+      .concat(searchSlice.middleware),
 });
 
 export const persistor = persistStore(store);

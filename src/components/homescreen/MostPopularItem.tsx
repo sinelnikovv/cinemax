@@ -1,80 +1,78 @@
 import { useGetGenresQuery } from "@src/store/slices/genresSlice";
-import { useGetImageQuery } from "@src/store/slices/imageSlice";
 import { searchMovieResult } from "@src/store/types";
 import { colors, fonts } from "@src/theme";
 import { BlurView } from "expo-blur";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import RegularText from "../shared/RegularText";
 import { genreIdToName } from "@src/utils/formatting";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { useState } from "react";
+import { navigate } from "@src/utils/navigation";
+import { Routes } from "@src/navigation/routes";
 
 const MostPopularItem = (item: searchMovieResult) => {
   const { data: allGenres } = useGetGenresQuery();
-  const { data, isLoading } = useGetImageQuery({ id: item.id });
   const [isLoadedImg, setIsLoadedImg] = useState(false);
+  const imgPath = `https://image.tmdb.org/t/p/w780${item.poster_path}`;
+  const movieGenre = genreIdToName(allGenres, item.genre_ids[0]);
+  console.log(item);
 
   return (
-    <View style={styles.container}>
-      {!isLoading ? (
-        <>
-          {!isLoadedImg && (
-            <View style={{ position: "absolute" }}>
-              <SkeletonPlaceholder>
-                <SkeletonPlaceholder.Item>
-                  <View
-                    style={{
-                      width: moderateScale(135),
-                      height: moderateScale(178),
-                    }}
-                  ></View>
-                </SkeletonPlaceholder.Item>
-              </SkeletonPlaceholder>
-            </View>
-          )}
-          <Image
-            resizeMode='cover'
-            width={moderateScale(135)}
-            height={moderateScale(178)}
-            source={{
-              uri: `https://image.tmdb.org/t/p/w780${data.posters[0].file_path}`,
-            }}
-            onLoadEnd={() => setIsLoadedImg(true)}
-            style={isLoadedImg ? {} : { opacity: 0 }}
-          />
-          <View style={styles.textBlock}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() => navigate(Routes.Movie, { id: item.id })}
+    >
+      <>
+        {!isLoadedImg && (
+          <View style={{ position: "absolute" }}>
+            <SkeletonPlaceholder>
+              <SkeletonPlaceholder.Item>
+                <View style={styles.skeleton}></View>
+              </SkeletonPlaceholder.Item>
+            </SkeletonPlaceholder>
+          </View>
+        )}
+        <Image
+          resizeMode='cover'
+          width={moderateScale(135)}
+          height={moderateScale(178)}
+          source={{
+            uri: imgPath,
+          }}
+          onLoadEnd={() => setIsLoadedImg(true)}
+        />
+        <View style={styles.textBlock}>
+          <RegularText
+            font={fonts.h5semibold}
+            numberOfLines={2}
+            color={colors.white}
+            textAlign='left'
+            style={styles.title}
+          >
+            {item.original_title}
+          </RegularText>
+          <RegularText
+            font={fonts.h7medium}
+            color={colors.grey}
+            textAlign='left'
+          >
+            {movieGenre}
+          </RegularText>
+        </View>
+        <BlurView intensity={90} style={styles.rating}>
+          <View style={{ flex: 1 }}>
             <RegularText
-              font={fonts.h5semibold}
-              numberOfLines={2}
-              color={colors.white}
-              textAlign='left'
-              style={styles.title}
-            >
-              {item.original_title}
-            </RegularText>
-            <RegularText
-              font={fonts.h7medium}
-              color={colors.grey}
+              font={fonts.h6semibold}
+              color={colors.orange}
               textAlign='left'
             >
-              {genreIdToName(allGenres, item.genre_ids[0])}
+              ★ {item.vote_average.toFixed(1)}
             </RegularText>
           </View>
-          <BlurView intensity={90} style={styles.rating}>
-            <View style={{ flex: 1 }}>
-              <RegularText
-                font={fonts.h6semibold}
-                color={colors.orange}
-                textAlign='left'
-              >
-                ★ {item.vote_average.toFixed(1)}
-              </RegularText>
-            </View>
-          </BlurView>
-        </>
-      ) : null}
-    </View>
+        </BlurView>
+      </>
+    </TouchableOpacity>
   );
 };
 
@@ -88,6 +86,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.soft,
     flex: 1,
+  },
+  skeleton: {
+    width: moderateScale(135),
+    height: moderateScale(178),
   },
   textBlock: {
     paddingHorizontal: moderateScale(8),

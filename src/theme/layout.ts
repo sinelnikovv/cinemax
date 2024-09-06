@@ -10,7 +10,6 @@ const layout = {
   height: initialWindowMetrics?.frame.height || height,
   statusBarHeight:
     initialWindowMetrics?.insets.top || Constants.statusBarHeight,
-  isSmallDevice: width < 375,
 };
 
 export default layout;

@@ -1,16 +1,21 @@
 import { Movie } from "@src/store/types";
 import { colors, fonts, layout } from "@src/theme";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import RegularText from "../shared/RegularText";
 import { formattedDateForUpcoming } from "@src/utils/formatting";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { useState } from "react";
+import { navigate } from "@src/utils/navigation";
+import { Routes } from "@src/navigation/routes";
 
 const UpcomingItem = (item: Movie) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      onPress={() => navigate(Routes.Movie, { id: item.id })}
+      style={styles.container}
+    >
       {!isLoadedImg && (
         <SkeletonPlaceholder>
           <SkeletonPlaceholder.Item>
@@ -41,7 +46,7 @@ const UpcomingItem = (item: Movie) => {
           {formattedDateForUpcoming(item.release_date)}
         </RegularText>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

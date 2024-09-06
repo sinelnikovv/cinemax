@@ -1,6 +1,10 @@
 import { createApi } from "@reduxjs/toolkit/query/react";
 import { baseQuery } from "./baseQuery";
-import { ImagePesponceType, UpcomingMoviesResponse } from "../types";
+import {
+  CastResponce,
+  MovieResponseType,
+  UpcomingMoviesResponse,
+} from "../types";
 
 export const upcomingSlice = createApi({
   reducerPath: "upcomingSlice",
@@ -12,10 +16,14 @@ export const upcomingSlice = createApi({
         params,
       }),
     }),
-    getUpcomingImage: builder.query<ImagePesponceType, { id: number }>({
-      query: ({ id }) => `/movie/${id}/images`,
+    getMovie: builder.query<MovieResponseType, { id: number }>({
+      query: ({ id }) => `/movie/${id}`,
+    }),
+    getCast: builder.query<CastResponce, { id: number }>({
+      query: ({ id }) => `/movie/${id}/credits`,
     }),
   }),
 });
 
-export const { useGetUpcomingQuery, useGetUpcomingImageQuery } = upcomingSlice;
+export const { useGetUpcomingQuery, useGetMovieQuery, useGetCastQuery } =
+  upcomingSlice;
