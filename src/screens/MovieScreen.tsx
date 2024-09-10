@@ -28,6 +28,7 @@ import { BlurView } from "expo-blur";
 import CastItem from "@src/components/MovieScreen/CastItem";
 import { useState } from "react";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import useFavoriteMovie from "@src/utils/firebase";
 
 type Props = RootStackNavigatorScreenProps<Routes.Movie>;
 
@@ -40,6 +41,7 @@ const MovieScreen = ({ route }: Props) => {
   const { data: cast, isLoading: isLoadingCast } = useGetCastQuery({
     id,
   });
+  const { isFavorite, toggleFavoriteMovie } = useFavoriteMovie(id);
 
   return (
     <ScreenContainer useInsets={false} sideBorder={false}>
@@ -72,9 +74,9 @@ const MovieScreen = ({ route }: Props) => {
               </RegularText>
               <TouchableOpacity
                 hitSlop={hitSlop.hs8}
-                onPress={() => console.log("fav")}
+                onPress={() => toggleFavoriteMovie(movie)}
               >
-                <Heart />
+                <Heart fill={isFavorite ? "red" : "transparent"} />
               </TouchableOpacity>
             </View>
             <View style={styles.main}>

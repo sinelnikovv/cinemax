@@ -1,5 +1,5 @@
 import { Movie } from "@src/store/types";
-import { colors, fonts, layout } from "@src/theme";
+import { colors, fonts, hitSlop, layout } from "@src/theme";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import RegularText from "../shared/RegularText";
@@ -8,9 +8,13 @@ import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { useState } from "react";
 import { navigate } from "@src/utils/navigation";
 import { Routes } from "@src/navigation/routes";
+import useFavoriteMovie from "@src/utils/firebase";
+import Heart from "@assets/images/heart.svg";
 
 const UpcomingItem = (item: Movie) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);
+  const { isFavorite, toggleFavoriteMovie } = useFavoriteMovie(item.id);
+
   return (
     <TouchableOpacity
       onPress={() => navigate(Routes.Movie, { id: item.id })}
@@ -38,6 +42,13 @@ const UpcomingItem = (item: Movie) => {
         onLoadEnd={() => setIsLoadedImg(true)}
         style={isLoadedImg ? {} : { opacity: 0 }}
       />
+      <TouchableOpacity
+        hitSlop={hitSlop.hs8}
+        onPress={() => toggleFavoriteMovie(item)}
+        style={styles.heart}
+      >
+        <Heart fill={isFavorite ? "red" : "transparent"} />
+      </TouchableOpacity>
       <View style={styles.textBlock}>
         <RegularText style={styles.text} font={fonts.h4semibold}>
           {item.title}
@@ -71,5 +82,10 @@ const styles = StyleSheet.create({
     textShadowColor: colors.black,
     textShadowOffset: { width: 2, height: 2 },
     textShadowRadius: 2,
+  },
+  heart: {
+    position: "absolute",
+    top: moderateScale(16),
+    right: moderateScale(16),
   },
 });

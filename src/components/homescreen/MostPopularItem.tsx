@@ -1,6 +1,6 @@
 import { useGetGenresQuery } from "@src/store/slices/apiSlice";
 import { searchMovieResult } from "@src/store/types";
-import { colors, fonts } from "@src/theme";
+import { colors, fonts, hitSlop } from "@src/theme";
 import { BlurView } from "expo-blur";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { moderateScale } from "react-native-size-matters";
@@ -10,13 +10,15 @@ import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { useState } from "react";
 import { navigate } from "@src/utils/navigation";
 import { Routes } from "@src/navigation/routes";
+import useFavoriteMovie from "@src/utils/firebase";
+import Heart from "@assets/images/heart.svg";
 
 const MostPopularItem = (item: searchMovieResult) => {
   const { data: allGenres } = useGetGenresQuery();
   const [isLoadedImg, setIsLoadedImg] = useState(false);
   const imgPath = `https://image.tmdb.org/t/p/w780${item.poster_path}`;
   const movieGenre = genreIdToName(allGenres, item.genre_ids[0]);
-
+  const { isFavorite, toggleFavoriteMovie } = useFavoriteMovie(item.id);
   return (
     <TouchableOpacity
       style={styles.container}
@@ -70,6 +72,13 @@ const MostPopularItem = (item: searchMovieResult) => {
             </RegularText>
           </View>
         </BlurView>
+        <TouchableOpacity
+          hitSlop={hitSlop.hs8}
+          onPress={() => toggleFavoriteMovie(item)}
+          style={styles.heart}
+        >
+          <Heart fill={isFavorite ? "red" : "transparent"} />
+        </TouchableOpacity>
       </>
     </TouchableOpacity>
   );
@@ -103,11 +112,16 @@ const styles = StyleSheet.create({
   rating: {
     position: "absolute",
     top: moderateScale(8),
-    right: moderateScale(8),
+    left: moderateScale(8),
     paddingVertical: moderateScale(4),
     paddingHorizontal: moderateScale(8),
     justifyContent: "center",
     overflow: "hidden",
     borderRadius: moderateScale(8),
+  },
+  heart: {
+    position: "absolute",
+    top: moderateScale(8),
+    right: moderateScale(8),
   },
 });

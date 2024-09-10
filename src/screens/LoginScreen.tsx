@@ -51,6 +51,7 @@ const LoginScreen = () => {
           setUser({
             name: data.user.displayName,
             email: data.user.email,
+            userId: data.user.uid,
           }),
         );
         setIsLoading(false);

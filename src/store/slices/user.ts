@@ -4,6 +4,7 @@ import { RootState } from "../store";
 type User = {
   name: string;
   email: string;
+  userId: string;
 };
 type UserState = User | null;
 const initialState: UserState = null;

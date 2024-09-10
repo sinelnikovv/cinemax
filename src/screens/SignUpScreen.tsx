@@ -56,8 +56,9 @@ const SignUpScreen = () => {
       .then(() => {
         dispatch(
           setUser({
-            name: data.name,
-            email: data.email,
+            name: auth().currentUser.displayName,
+            email: auth().currentUser.email,
+            userId: auth().currentUser.uid,
           }),
         );
         setIsLoading(false);
