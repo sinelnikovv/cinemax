@@ -3,6 +3,7 @@ import TabBar from "./TabBar";
 import { HomeScreen } from "@src/screens";
 import { Routes } from "./routes";
 import FavouritesScreen from "@src/screens/FavouritesScreen";
+import SettingsScreen from "@src/screens/SettingsScreen";
 
 export type MainBottomTabNavigatorParamList = {
   [Routes.Home]: undefined;
@@ -23,7 +24,7 @@ const MainBottomTabNavigator = () => {
       <Tab.Screen name={Routes.Home} component={HomeScreen} />
       <Tab.Screen name={Routes.Search} component={HomeScreen} />
       <Tab.Screen name={Routes.Favourites} component={FavouritesScreen} />
-      <Tab.Screen name={Routes.Settings} component={HomeScreen} />
+      <Tab.Screen name={Routes.Settings} component={SettingsScreen} />
     </Tab.Navigator>
   );
 };
