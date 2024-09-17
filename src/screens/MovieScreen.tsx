@@ -29,6 +29,8 @@ import CastItem from "@src/components/MovieScreen/CastItem";
 import { useState } from "react";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import useFavoriteMovie from "@src/utils/firebase";
+import { MovieResponseType } from "@src/store/types";
+import { createPath } from "@src/utils/formatting";
 
 type Props = RootStackNavigatorScreenProps<Routes.Movie>;
 
@@ -41,7 +43,16 @@ const MovieScreen = ({ route }: Props) => {
   const { data: cast, isLoading: isLoadingCast } = useGetCastQuery({
     id,
   });
-  const { isFavorite, toggleFavoriteMovie } = useFavoriteMovie(id);
+  const { favoriteMovies, toggleFavoriteMovie } = useFavoriteMovie();
+  const isFavorite = favoriteMovies.some((movie) => movie.id === id);
+
+  const toggleHandler = (item: MovieResponseType) => {
+    toggleFavoriteMovie({
+      id: item.id,
+      title: item.title,
+      poster_path: item.poster_path,
+    });
+  };
 
   return (
     <ScreenContainer useInsets={false} sideBorder={false}>
@@ -52,7 +63,7 @@ const MovieScreen = ({ route }: Props) => {
           <View style={styles.topContainer}>
             <ImageBackground
               source={{
-                uri: `https://image.tmdb.org/t/p/w780${movie.poster_path}`,
+                uri: createPath(movie.poster_path),
               }}
               style={[styles.bgImg, styles.gradient]}
               resizeMode='cover'
@@ -74,7 +85,7 @@ const MovieScreen = ({ route }: Props) => {
               </RegularText>
               <TouchableOpacity
                 hitSlop={hitSlop.hs8}
-                onPress={() => toggleFavoriteMovie(movie)}
+                onPress={() => toggleHandler(movie)}
               >
                 <Heart fill={isFavorite ? "red" : "transparent"} />
               </TouchableOpacity>
@@ -100,7 +111,7 @@ const MovieScreen = ({ route }: Props) => {
                 width={moderateScale(205)}
                 height={moderateScale(287)}
                 source={{
-                  uri: `https://image.tmdb.org/t/p/w780${movie.poster_path}`,
+                  uri: createPath(movie.poster_path),
                 }}
                 style={styles.img}
                 onLoadEnd={() => setIsLoadedImg(true)}

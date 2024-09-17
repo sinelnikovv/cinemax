@@ -1,9 +1,9 @@
-import { Movie } from "@src/store/types";
+import { searchMovieResult } from "@src/store/types";
 import { colors, fonts, hitSlop, layout } from "@src/theme";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import RegularText from "../shared/RegularText";
-import { formattedDateForUpcoming } from "@src/utils/formatting";
+import { createPath, formattedDateForUpcoming } from "@src/utils/formatting";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { useState } from "react";
 import { navigate } from "@src/utils/navigation";
@@ -11,10 +11,17 @@ import { Routes } from "@src/navigation/routes";
 import useFavoriteMovie from "@src/utils/firebase";
 import Heart from "@assets/images/heart.svg";
 
-const UpcomingItem = (item: Movie) => {
+const UpcomingItem = (item: searchMovieResult) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);
-  const { isFavorite, toggleFavoriteMovie } = useFavoriteMovie(item.id);
-
+  const { favoriteMovies, toggleFavoriteMovie } = useFavoriteMovie();
+  const isFavorite = favoriteMovies.some((movie) => movie.id === item.id);
+  const toggleHandler = () => {
+    toggleFavoriteMovie({
+      id: item.id,
+      title: item.title,
+      poster_path: item.poster_path,
+    });
+  };
   return (
     <TouchableOpacity
       onPress={() => navigate(Routes.Movie, { id: item.id })}
@@ -35,7 +42,7 @@ const UpcomingItem = (item: Movie) => {
       <Image
         resizeMode='cover'
         source={{
-          uri: `https://image.tmdb.org/t/p/w780${item.backdrop_path}`,
+          uri: createPath(item.backdrop_path),
         }}
         width={layout.width - moderateScale(80)}
         height={moderateScale(165)}
@@ -44,7 +51,7 @@ const UpcomingItem = (item: Movie) => {
       />
       <TouchableOpacity
         hitSlop={hitSlop.hs8}
-        onPress={() => toggleFavoriteMovie(item)}
+        onPress={() => toggleHandler()}
         style={styles.heart}
       >
         <Heart fill={isFavorite ? "red" : "transparent"} />

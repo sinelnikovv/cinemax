@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import TabBar from "./TabBar";
 import { HomeScreen } from "@src/screens";
 import { Routes } from "./routes";
+import FavouritesScreen from "@src/screens/FavouritesScreen";
 
 export type MainBottomTabNavigatorParamList = {
   [Routes.Home]: undefined;
@@ -21,7 +22,7 @@ const MainBottomTabNavigator = () => {
     >
       <Tab.Screen name={Routes.Home} component={HomeScreen} />
       <Tab.Screen name={Routes.Search} component={HomeScreen} />
-      <Tab.Screen name={Routes.Favourites} component={HomeScreen} />
+      <Tab.Screen name={Routes.Favourites} component={FavouritesScreen} />
       <Tab.Screen name={Routes.Settings} component={HomeScreen} />
     </Tab.Navigator>
   );

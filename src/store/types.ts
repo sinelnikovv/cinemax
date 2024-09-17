@@ -111,30 +111,13 @@ export type searchTVResult = {
   vote_count: number;
 };
 
-export type Movie = {
-  adult: boolean;
-  backdrop_path: string;
-  genre_ids: number[];
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  popularity: number;
-  poster_path: string;
-  release_date: string;
-  title: string;
-  video: boolean;
-  vote_average: number;
-  vote_count: number;
-};
-
 export type UpcomingMoviesResponse = {
   dates: {
     maximum: string;
     minimum: string;
   };
   page: number;
-  results: Movie[];
+  results: searchMovieResult[];
   total_pages: number;
   total_results: number;
 };
@@ -146,22 +129,6 @@ export type GenreResponse = {
 export type Genre = {
   id: number;
   name: string;
-};
-
-type ImgItemType = {
-  aspect_ratio: number;
-  height: number;
-  iso_639_1: null;
-  file_path: string;
-  vote_average: number;
-  vote_count: number;
-  width: number;
-};
-
-export type ImagePesponceType = {
-  backdrops: ImgItemType[];
-  logos: ImgItemType[];
-  posters: ImgItemType[];
 };
 
 type BelongsToCollection = {
@@ -251,4 +218,10 @@ export type CastResponce = {
   id: number;
   cast: CastMember[];
   crew: CrewMember[];
+};
+
+export type FavouriteMovie = {
+  id: number;
+  title: string;
+  poster_path: string;
 };

@@ -9,3 +9,7 @@ export const genreIdToName = (allGenreIds: GenreResponse, genreId: number) => {
 export const formattedDateForUpcoming = (date: string) => {
   return moment(date).format("[On] MMMM DD, YYYY");
 };
+
+export const createPath = (path: string) => {
+  return `https://image.tmdb.org/t/p/w780${path}`;
+};

@@ -1,11 +1,9 @@
-import { useGetGenresQuery } from "@src/store/slices/apiSlice";
-import { searchMovieResult } from "@src/store/types";
+import { FavouriteMovie } from "@src/store/types";
 import { colors, fonts, hitSlop } from "@src/theme";
-import { BlurView } from "expo-blur";
 import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import RegularText from "../shared/RegularText";
-import { createPath, genreIdToName } from "@src/utils/formatting";
+import { createPath } from "@src/utils/formatting";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 import { useState } from "react";
 import { navigate } from "@src/utils/navigation";
@@ -13,10 +11,8 @@ import { Routes } from "@src/navigation/routes";
 import useFavoriteMovie from "@src/utils/firebase";
 import Heart from "@assets/images/heart.svg";
 
-const MostPopularItem = (item: searchMovieResult) => {
-  const { data: allGenres } = useGetGenresQuery();
+const FavouriteItem = (item: FavouriteMovie) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);
-  const movieGenre = genreIdToName(allGenres, item.genre_ids[0]);
   const { favoriteMovies, toggleFavoriteMovie } = useFavoriteMovie();
   const isFavorite = favoriteMovies.some((movie) => movie.id === item.id);
 
@@ -60,27 +56,9 @@ const MostPopularItem = (item: searchMovieResult) => {
             textAlign='left'
             style={styles.title}
           >
-            {item.original_title}
-          </RegularText>
-          <RegularText
-            font={fonts.h7medium}
-            color={colors.grey}
-            textAlign='left'
-          >
-            {movieGenre}
+            {item.title}
           </RegularText>
         </View>
-        <BlurView intensity={90} style={styles.rating}>
-          <View style={{ flex: 1 }}>
-            <RegularText
-              font={fonts.h6semibold}
-              color={colors.orange}
-              textAlign='left'
-            >
-              ★ {item.vote_average.toFixed(1)}
-            </RegularText>
-          </View>
-        </BlurView>
         <TouchableOpacity
           hitSlop={hitSlop.hs8}
           onPress={() => toggleHandler()}
@@ -93,7 +71,7 @@ const MostPopularItem = (item: searchMovieResult) => {
   );
 };
 
-export default MostPopularItem;
+export default FavouriteItem;
 
 const styles = StyleSheet.create({
   container: {
@@ -103,6 +81,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: colors.soft,
     flex: 1,
+    width: moderateScale(135),
   },
   skeleton: {
     width: moderateScale(135),
@@ -117,16 +96,6 @@ const styles = StyleSheet.create({
   title: {
     marginBottom: moderateScale(4),
     flex: 1,
-  },
-  rating: {
-    position: "absolute",
-    top: moderateScale(8),
-    left: moderateScale(8),
-    paddingVertical: moderateScale(4),
-    paddingHorizontal: moderateScale(8),
-    justifyContent: "center",
-    overflow: "hidden",
-    borderRadius: moderateScale(8),
   },
   heart: {
     position: "absolute",
