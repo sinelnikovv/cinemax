@@ -38,18 +38,20 @@ const LogoutModal = ({ isShow, setIsShow }: Props) => {
             Ullamcorper imperdiet urna id non sed est sem. Rhoncus amet, enim
             purus gravida donec aliquet.
           </RegularText>
-          <Button
-            containerStyle={styles.btn}
-            size='lg'
-            type='outlined'
-            onPress={logoutHandler}
-          >
-            Log Out
-          </Button>
+
           <View style={styles.boxContainer}>
             <Button
               containerStyle={styles.btn}
-              size='lg'
+              size='xlg'
+              type='outlined'
+              onPress={logoutHandler}
+              textStyle={{}}
+            >
+              Log Out
+            </Button>
+            <Button
+              containerStyle={styles.btn}
+              size='xlg'
               onPress={() => setIsShow(false)}
             >
               Cancel
@@ -77,8 +79,6 @@ const styles = StyleSheet.create({
   boxContainer: {
     flexDirection: "row",
     alignItems: "center",
-    flex: 1,
-    backgroundColor: "red",
     gap: moderateScale(12),
   },
   btn: {
