@@ -9,5 +9,6 @@ export enum Routes {
   Search = "Search",
   Favourites = "Favourites",
   Settings = "Settings",
+  EditProfile = "EditProfile",
   Movie = "Movie",
 }

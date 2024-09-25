@@ -8,6 +8,7 @@ import MainBottomTab from "./MainBottomTab";
 import AuthStack from "./AuthStack";
 import { MovieScreen, OnboardingScreen } from "@src/screens";
 import { Routes } from "./routes";
+import EditProfileScreen from "@src/screens/EditProfileScreen";
 
 export type RootStackNavigatorParamList = {
   [Routes.Onboarding]: undefined;
@@ -16,6 +17,7 @@ export type RootStackNavigatorParamList = {
   [Routes.Movie]: {
     id: number;
   };
+  [Routes.EditProfile]: undefined;
 };
 
 export type RootStackNavigatorScreenProps<
@@ -38,6 +40,10 @@ const RootStack = () => {
         <>
           <Stack.Screen name='MainBottomTab' component={MainBottomTab} />
           <Stack.Screen name={Routes.Movie} component={MovieScreen} />
+          <Stack.Screen
+            name={Routes.EditProfile}
+            component={EditProfileScreen}
+          />
         </>
       )}
     </Stack.Navigator>

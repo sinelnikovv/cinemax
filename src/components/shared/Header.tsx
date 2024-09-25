@@ -3,13 +3,14 @@ import RegularText from "./RegularText";
 import Back from "@assets/images/arrowBack.svg";
 import { moderateScale } from "react-native-size-matters";
 import { colors, fonts } from "@src/theme";
+import { goBack } from "@src/utils/navigation";
 
 type Props = {
   title: string;
-  onPress: () => void;
+  onPress?: () => void;
   style?: ViewStyle;
 };
-const Header = ({ title, onPress, style }: Props) => {
+const Header = ({ title, onPress = () => goBack(), style }: Props) => {
   return (
     <View style={[styles.container, style]}>
       <TouchableOpacity

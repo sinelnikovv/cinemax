@@ -4,16 +4,13 @@ import RegularText from "@src/components/shared/RegularText";
 import ScreenContainer from "@src/components/shared/ScreenContainer";
 import { Routes } from "@src/navigation/routes";
 import { fonts } from "@src/theme";
-import { goBack, navigate } from "@src/utils/navigation";
+import { navigate } from "@src/utils/navigation";
 import { View } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 
 const ResetPasswordScreen = () => {
   return (
-    <ScreenContainer
-      scroll={true}
-      header={<Header title='' onPress={() => goBack()} />}
-    >
+    <ScreenContainer scroll={true} header={<Header title='' />}>
       <View
         style={{
           flex: 1,

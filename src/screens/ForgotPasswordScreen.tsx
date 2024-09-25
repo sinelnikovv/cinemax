@@ -5,7 +5,7 @@ import { View, StyleSheet } from "react-native";
 import { yupResolver } from "@hookform/resolvers/yup";
 import auth from "@react-native-firebase/auth";
 import { useState } from "react";
-import { goBack, navigate } from "@src/utils/navigation";
+import { navigate } from "@src/utils/navigation";
 import ScreenContainer from "@src/components/shared/ScreenContainer";
 import Header from "@src/components/shared/Header";
 import RegularText from "@src/components/shared/RegularText";
@@ -48,10 +48,7 @@ const ForgotPasswordScreen = () => {
   };
 
   return (
-    <ScreenContainer
-      scroll={true}
-      header={<Header title='' onPress={() => goBack()} />}
-    >
+    <ScreenContainer scroll={true} header={<Header title='' />}>
       <RegularText
         font={fonts.h2semibold}
         style={{ marginTop: moderateScale(40), marginBottom: moderateScale(8) }}

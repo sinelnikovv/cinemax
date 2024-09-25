@@ -10,6 +10,8 @@ import UserIcon from "@src/assets/images/UserIcon";
 import BellIcon from "@src/assets/images/bell.svg";
 import { useState } from "react";
 import LogoutModal from "@src/components/SettingsScreen/LogoutModal";
+import { navigate } from "@src/utils/navigation";
+import { Routes } from "@src/navigation/routes";
 
 const SettingsScreen = () => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -20,9 +22,7 @@ const SettingsScreen = () => {
       <View style={styles.container}>
         <RegularText textAlign='left'>Account</RegularText>
         <SettingsItem
-          onPress={() => {
-            console.log("pressed");
-          }}
+          onPress={() => navigate(Routes.EditProfile)}
           title='Edit Profile'
           icon={<UserIcon color={colors.blue} />}
         />

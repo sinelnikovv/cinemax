@@ -8,7 +8,7 @@ import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "@src/hooks/store";
 import { selectUser, setUser } from "@src/store/slices/user";
 import { colors, fonts } from "@src/theme";
-import { goBack, navigate } from "@src/utils/navigation";
+import { navigate } from "@src/utils/navigation";
 import ScreenContainer from "@src/components/shared/ScreenContainer";
 import Header from "@src/components/shared/Header";
 import RegularText from "@src/components/shared/RegularText";
@@ -77,10 +77,7 @@ const LoginScreen = () => {
   };
 
   return (
-    <ScreenContainer
-      scroll={true}
-      header={<Header title='Login' onPress={() => goBack()} />}
-    >
+    <ScreenContainer scroll={true} header={<Header title='Login' />}>
       <RegularText
         font={fonts.h2semibold}
         style={{ marginTop: moderateScale(40), marginBottom: moderateScale(8) }}

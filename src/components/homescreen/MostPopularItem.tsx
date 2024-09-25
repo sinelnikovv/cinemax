@@ -16,7 +16,9 @@ import Heart from "@assets/images/heart.svg";
 const MostPopularItem = (item: searchMovieResult) => {
   const { data: allGenres } = useGetGenresQuery();
   const [isLoadedImg, setIsLoadedImg] = useState(false);
-  const movieGenre = genreIdToName(allGenres, item.genre_ids[0]);
+  const movieGenre = allGenres
+    ? genreIdToName(allGenres, item.genre_ids[0])
+    : "";
   const { favoriteMovies, toggleFavoriteMovie } = useFavoriteMovie();
   const isFavorite = favoriteMovies.some((movie) => movie.id === item.id);
 

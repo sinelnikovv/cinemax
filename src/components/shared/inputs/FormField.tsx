@@ -29,7 +29,9 @@ const FormField: React.FC<Props> = ({
     let topPosition;
     isActive
       ? (topPosition = withTiming(-10, { duration: 300 }))
-      : !value && (topPosition = withTiming(20, { duration: 300 }));
+      : !value
+        ? (topPosition = withTiming(20, { duration: 300 }))
+        : (topPosition = -10);
 
     return {
       top: topPosition,

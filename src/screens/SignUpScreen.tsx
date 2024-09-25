@@ -8,7 +8,7 @@ import { useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { moderateScale } from "react-native-size-matters";
 import * as yup from "yup";
-import { goBack, navigate } from "@src/utils/navigation";
+import { navigate } from "@src/utils/navigation";
 import ScreenContainer from "@src/components/shared/ScreenContainer";
 import Header from "@src/components/shared/Header";
 import RegularText from "@src/components/shared/RegularText";
@@ -79,10 +79,7 @@ const SignUpScreen = () => {
   };
 
   return (
-    <ScreenContainer
-      scroll={true}
-      header={<Header title='Sign Up' onPress={() => goBack()} />}
-    >
+    <ScreenContainer scroll={true} header={<Header title='Sign Up' />}>
       <RegularText
         font={fonts.h2semibold}
         style={{ marginTop: moderateScale(40), marginBottom: moderateScale(8) }}
