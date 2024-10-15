@@ -1,13 +1,16 @@
 import { StyleSheet, View } from "react-native";
+
+import auth from "@react-native-firebase/auth";
+import { moderateScale } from "react-native-size-matters";
+
+import LogoutIcon from "@assets/images/logout.svg";
+import { useAppDispatch } from "@src/hooks/store";
+import { clearUser } from "@src/store/slices/user";
+import { colors, fonts } from "@src/theme";
+
+import Button from "../shared/Button";
 import ModalView from "../shared/ModalView";
 import RegularText from "../shared/RegularText";
-import LogoutIcon from "@assets/images/logout.svg";
-import { colors, fonts } from "@src/theme";
-import { moderateScale } from "react-native-size-matters";
-import Button from "../shared/Button";
-import { clearUser } from "@src/store/slices/user";
-import { useAppDispatch } from "@src/hooks/store";
-import auth from "@react-native-firebase/auth";
 
 type Props = {
   isShow: boolean;

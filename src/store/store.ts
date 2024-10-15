@@ -1,9 +1,10 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { persistReducer, persistStore } from "redux-persist";
-import userReducer from "./slices/user";
+
 import { apiSlice } from "./slices/apiSlice";
 import selectedGenreReducer from "./slices/selectedGenreSlice";
+import userReducer from "./slices/user";
 
 const persistConfig = {
   key: "root",

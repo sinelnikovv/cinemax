@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import {
   StyleProp,
   StyleSheet,
@@ -5,9 +6,11 @@ import {
   View,
   ViewStyle,
 } from "react-native";
+
 import { moderateScale } from "react-native-size-matters";
-import { useMemo } from "react";
+
 import { colors, hitSlop } from "@src/theme";
+
 import FormField from "./FormField";
 
 type Props = {

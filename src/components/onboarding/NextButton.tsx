@@ -1,12 +1,14 @@
-import { colors } from "@src/theme";
 import { useEffect } from "react";
 import { TouchableOpacity, ViewStyle } from "react-native";
+
 import Animated, {
   useAnimatedProps,
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
 import Svg, { Path, Rect } from "react-native-svg";
+
+import { colors } from "@src/theme";
 
 const AnimatedPath = Animated.createAnimatedComponent(Path);
 

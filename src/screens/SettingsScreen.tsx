@@ -1,17 +1,19 @@
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+
+import BellIcon from "@src/assets/images/bell.svg";
+import UserIcon from "@src/assets/images/UserIcon";
+import LogoutModal from "@src/components/SettingsScreen/LogoutModal";
+import SettingsItem from "@src/components/SettingsScreen/SettingsItem";
 import User from "@src/components/SettingsScreen/User";
 import Button from "@src/components/shared/Button";
-import ScreenContainer from "@src/components/shared/ScreenContainer";
-import { StyleSheet, View } from "react-native";
-import { colors } from "@src/theme";
 import RegularText from "@src/components/shared/RegularText";
-import { moderateScale } from "react-native-size-matters";
-import SettingsItem from "@src/components/SettingsScreen/SettingsItem";
-import UserIcon from "@src/assets/images/UserIcon";
-import BellIcon from "@src/assets/images/bell.svg";
-import { useState } from "react";
-import LogoutModal from "@src/components/SettingsScreen/LogoutModal";
-import { navigate } from "@src/utils/navigation";
+import ScreenContainer from "@src/components/shared/ScreenContainer";
 import { Routes } from "@src/navigation/routes";
+import { colors } from "@src/theme";
+import { navigate } from "@src/utils/navigation";
 
 const SettingsScreen = () => {
   const [isShowModal, setIsShowModal] = useState(false);

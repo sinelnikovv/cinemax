@@ -1,13 +1,15 @@
-import { useFonts } from "expo-font";
-import { StatusBar } from "expo-status-bar";
 import { useEffect } from "react";
-import { View, Image } from "react-native";
+import { Image, View } from "react-native";
+
+import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
+import { StatusBar } from "expo-status-bar";
 import "react-native-gesture-handler";
-import Navigation from "./src/navigation";
-import { persistor, store } from "./src/store/store";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
+
+import Navigation from "./src/navigation";
+import { persistor, store } from "./src/store/store";
 
 SplashScreen.preventAutoHideAsync();
 

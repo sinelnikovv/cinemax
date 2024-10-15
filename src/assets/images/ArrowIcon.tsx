@@ -1,6 +1,8 @@
-import { colors } from "@src/theme";
 import React from "react";
+
 import Svg, { Path } from "react-native-svg";
+
+import { colors } from "@src/theme";
 type Props = {
   width?: number;
   height?: number;

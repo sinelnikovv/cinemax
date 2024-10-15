@@ -1,8 +1,10 @@
+import { FlatList, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+
 import FavouriteItem from "@src/components/homescreen/FavouriteItem";
 import ScreenContainer from "@src/components/shared/ScreenContainer";
 import useFavoriteMovies from "@src/utils/firebase";
-import { FlatList, View } from "react-native";
-import { moderateScale } from "react-native-size-matters";
 
 const FavouritesScreen = () => {
   const { favoriteMovies } = useFavoriteMovies();

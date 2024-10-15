@@ -7,10 +7,13 @@ module.exports = {
     "react-native/react-native": true,
   },
   extends: [
+    "eslint:recommended",
+    "plugin:import/recommended",
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "prettier",
+    "plugin:import/typescript",
   ],
   overrides: [],
   parser: "@typescript-eslint/parser",
@@ -27,6 +30,7 @@ module.exports = {
     "react-hooks",
     "@typescript-eslint",
     "prettier",
+    "import",
   ],
   rules: {
     "prettier/prettier": "error",
@@ -51,10 +55,43 @@ module.exports = {
     "react-native/no-unused-styles": "warn",
     "react-native/no-color-literals": "warn",
     "react-native/no-single-element-style-arrays": "warn",
+    "sort-imports": [
+      "error",
+      { ignoreCase: true, ignoreDeclarationSort: true },
+    ],
+    "import/order": [
+      "error",
+      {
+        groups: [
+          ["external", "builtin"],
+          "internal",
+          ["sibling", "parent"],
+          "index",
+        ],
+        pathGroups: [
+          {
+            pattern: "@(react|react-native)",
+            group: "external",
+            position: "before",
+          },
+          {
+            pattern: "@src/**",
+            group: "internal",
+          },
+        ],
+        pathGroupsExcludedImportTypes: ["internal", "react"],
+        "newlines-between": "always",
+        alphabetize: {
+          order: "asc",
+          caseInsensitive: true,
+        },
+      },
+    ],
   },
   settings: {
     "import/resolver": {
-      typescript: {},
+      typescript: true,
+      node: true,
     },
     react: {
       version: "detect",

@@ -1,3 +1,7 @@
+import { View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+
 import Button from "@src/components/shared/Button";
 import Header from "@src/components/shared/Header";
 import RegularText from "@src/components/shared/RegularText";
@@ -5,8 +9,6 @@ import ScreenContainer from "@src/components/shared/ScreenContainer";
 import { Routes } from "@src/navigation/routes";
 import { fonts } from "@src/theme";
 import { navigate } from "@src/utils/navigation";
-import { View } from "react-native";
-import { moderateScale } from "react-native-size-matters";
 
 const ResetPasswordScreen = () => {
   return (

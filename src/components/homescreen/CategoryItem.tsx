@@ -1,7 +1,10 @@
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+
 import { Genre } from "@src/store/types";
 import { colors } from "@src/theme";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { moderateScale } from "react-native-size-matters";
+
 import RegularText from "../shared/RegularText";
 
 type Props = {

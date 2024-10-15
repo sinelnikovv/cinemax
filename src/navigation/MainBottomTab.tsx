@@ -1,9 +1,11 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import TabBar from "./TabBar";
+
 import { HomeScreen } from "@src/screens";
-import { Routes } from "./routes";
 import FavouritesScreen from "@src/screens/FavouritesScreen";
 import SettingsScreen from "@src/screens/SettingsScreen";
+
+import { Routes } from "./routes";
+import TabBar from "./TabBar";
 
 export type MainBottomTabNavigatorParamList = {
   [Routes.Home]: undefined;

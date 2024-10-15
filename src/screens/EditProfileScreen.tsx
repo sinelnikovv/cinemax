@@ -1,23 +1,25 @@
-import Avatar from "@src/components/homescreen/Avatar";
-import Header from "@src/components/shared/Header";
-import RegularText from "@src/components/shared/RegularText";
-import ScreenContainer from "@src/components/shared/ScreenContainer";
-import { useAppDispatch, useAppSelector } from "@src/hooks/store";
-import { selectUser, setUser } from "@src/store/slices/user";
-import { colors, fonts } from "@src/theme";
+import { useState } from "react";
 import { StyleSheet, View } from "react-native";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import auth, { updateEmail, updatePassword } from "@react-native-firebase/auth";
+import { Controller, useForm } from "react-hook-form";
 import { moderateScale } from "react-native-size-matters";
 import * as yup from "yup";
-import auth, { updateEmail, updatePassword } from "@react-native-firebase/auth";
-import { useState } from "react";
-import { Controller, useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
+
+import Avatar from "@src/components/homescreen/Avatar";
 import Button from "@src/components/shared/Button";
+import Header from "@src/components/shared/Header";
 import {
   PasswordInput,
   TextInput,
   TextInputType,
 } from "@src/components/shared/inputs";
+import RegularText from "@src/components/shared/RegularText";
+import ScreenContainer from "@src/components/shared/ScreenContainer";
+import { useAppDispatch, useAppSelector } from "@src/hooks/store";
+import { selectUser, setUser } from "@src/store/slices/user";
+import { colors, fonts } from "@src/theme";
 
 type FormData = {
   name: string;

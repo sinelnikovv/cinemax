@@ -1,11 +1,13 @@
 import { createStackNavigator } from "@react-navigation/stack";
+
 import {
-  ResetPasswordScreen,
   ForgotPasswordScreen,
   IntroScreen,
   LoginScreen,
+  ResetPasswordScreen,
   SignUpScreen,
 } from "@src/screens";
+
 import { Routes } from "./routes";
 
 export type AuthStackNavigatorParamList = {

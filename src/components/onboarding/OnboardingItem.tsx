@@ -1,6 +1,9 @@
-import { colors, fonts } from "@src/theme";
 import { StyleSheet, View } from "react-native";
+
 import { moderateScale } from "react-native-size-matters";
+
+import { colors, fonts } from "@src/theme";
+
 import RegularText from "../shared/RegularText";
 
 type Props = {

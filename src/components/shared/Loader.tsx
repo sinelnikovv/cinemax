@@ -1,5 +1,6 @@
-import { colors } from "@src/theme";
 import { ActivityIndicator, StyleSheet, View } from "react-native";
+
+import { colors } from "@src/theme";
 type Props = {
   isShow: boolean;
 };

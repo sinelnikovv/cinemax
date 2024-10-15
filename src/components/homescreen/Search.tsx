@@ -1,7 +1,9 @@
-import { StyleSheet, TextInput, View } from "react-native";
-import SearchIcon from "@assets/images/SearchIcon";
-import { moderateScale } from "react-native-size-matters";
 import { useState } from "react";
+import { StyleSheet, TextInput, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+
+import SearchIcon from "@assets/images/SearchIcon";
 import { colors } from "@src/theme";
 
 const Search = () => {

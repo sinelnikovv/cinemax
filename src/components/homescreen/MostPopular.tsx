@@ -1,11 +1,14 @@
+import { StyleSheet, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+import Carousel from "react-native-snap-carousel";
+
 import { useAppSelector } from "@src/hooks/store";
 import { useGetSearchMoviesQuery } from "@src/store/slices/apiSlice";
 import { selectedGenre } from "@src/store/slices/selectedGenreSlice";
-import { StyleSheet, View } from "react-native";
-import MostPopularItem from "./MostPopularItem";
-import { moderateScale } from "react-native-size-matters";
 import { fonts, layout } from "@src/theme";
-import Carousel from "react-native-snap-carousel";
+
+import MostPopularItem from "./MostPopularItem";
 import Button from "../shared/Button";
 import RegularText from "../shared/RegularText";
 

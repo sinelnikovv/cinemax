@@ -1,9 +1,12 @@
 import React from "react";
 import { StyleProp, StyleSheet, View, ViewStyle } from "react-native";
-import { moderateScale } from "react-native-size-matters";
-import InputError from "./InputError";
+
 import { useAnimatedStyle, withTiming } from "react-native-reanimated";
+import { moderateScale } from "react-native-size-matters";
+
 import { colors, fonts } from "@src/theme";
+
+import InputError from "./InputError";
 import RegularText from "../RegularText";
 
 type Props = {

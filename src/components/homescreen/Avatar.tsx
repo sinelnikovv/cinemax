@@ -1,22 +1,25 @@
 import React, { useEffect, useState } from "react";
 import {
+  ActivityIndicator,
   Alert,
+  Image,
   StyleSheet,
   TouchableOpacity,
   View,
-  Image,
-  ActivityIndicator,
 } from "react-native";
-import { moderateScale } from "react-native-size-matters";
-import { colors, fonts } from "@src/theme";
-import RegularText from "../shared/RegularText";
-import Pen from "@assets/images/pen.svg";
-import * as ImagePicker from "expo-image-picker";
-import { openSettings } from "expo-linking";
-import { useAppSelector } from "@src/hooks/store";
-import { selectUser } from "@src/store/slices/user";
+
 import storage from "@react-native-firebase/storage";
 import * as ImageManipulator from "expo-image-manipulator";
+import * as ImagePicker from "expo-image-picker";
+import { openSettings } from "expo-linking";
+import { moderateScale } from "react-native-size-matters";
+
+import Pen from "@assets/images/pen.svg";
+import { useAppSelector } from "@src/hooks/store";
+import { selectUser } from "@src/store/slices/user";
+import { colors, fonts } from "@src/theme";
+
+import RegularText from "../shared/RegularText";
 
 type Props = {
   size?: number;

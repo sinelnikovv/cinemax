@@ -1,10 +1,13 @@
+import { StyleSheet, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+
 import { useAppSelector } from "@src/hooks/store";
 import { selectUser } from "@src/store/slices/user";
 import fonts from "@src/theme/fonts";
-import { View, StyleSheet } from "react-native";
-import { moderateScale } from "react-native-size-matters";
-import RegularText from "../shared/RegularText";
+
 import Avatar from "./Avatar";
+import RegularText from "../shared/RegularText";
 
 const Header = () => {
   const user = useAppSelector(selectUser);

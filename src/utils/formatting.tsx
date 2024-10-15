@@ -1,5 +1,6 @@
-import { GenreResponse } from "@src/store/types";
 import moment from "moment";
+
+import { GenreResponse } from "@src/store/types";
 
 export const genreIdToName = (allGenreIds: GenreResponse, genreId: number) => {
   const genre = allGenreIds.genres.find((genre) => genre.id === genreId);

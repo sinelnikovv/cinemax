@@ -1,19 +1,22 @@
 import React from "react";
-import { View, TouchableOpacity, StyleSheet } from "react-native";
-import { useSafeAreaInsets } from "react-native-safe-area-context";
-import { moderateScale } from "react-native-size-matters";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+
 import Animated, {
-  useSharedValue,
   useAnimatedStyle,
+  useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import UserIcon from "@assets/images/UserIcon";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { moderateScale } from "react-native-size-matters";
+
+import FavouritesIcon from "@assets/images/FavouritesIcon";
 import HomeIcon from "@assets/images/HomeIcon";
 import SearchIcon from "@assets/images/SearchIcon";
-import FavouritesIcon from "@assets/images/FavouritesIcon";
-import { colors } from "@src/theme";
+import UserIcon from "@assets/images/UserIcon";
 import RegularText from "@src/components/shared/RegularText";
+import { colors } from "@src/theme";
 import { navigate } from "@src/utils/navigation";
+
 import { Routes } from "./routes";
 
 const TabBar = ({ state, descriptors, navigation }) => {

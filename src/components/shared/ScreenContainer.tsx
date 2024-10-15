@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Keyboard,
   KeyboardAvoidingView,
@@ -6,9 +7,10 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { moderateScale } from "react-native-size-matters";
-import { useState } from "react";
+
 import { colors } from "@src/theme";
 
 type Props = {

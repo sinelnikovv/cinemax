@@ -1,5 +1,6 @@
-import { colors } from "@src/theme";
 import Svg, { Path } from "react-native-svg";
+
+import { colors } from "@src/theme";
 
 const SearchIcon = ({ color = colors.grey }) => {
   return (

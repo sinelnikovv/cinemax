@@ -1,18 +1,20 @@
-import { moderateScale } from "react-native-size-matters";
-import { useForm, Controller } from "react-hook-form";
-import * as yup from "yup";
-import { View, StyleSheet } from "react-native";
+import { useState } from "react";
+import { StyleSheet, View } from "react-native";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import auth from "@react-native-firebase/auth";
-import { useState } from "react";
-import { navigate } from "@src/utils/navigation";
-import ScreenContainer from "@src/components/shared/ScreenContainer";
-import Header from "@src/components/shared/Header";
-import RegularText from "@src/components/shared/RegularText";
-import { colors, fonts } from "@src/theme";
-import { TextInput, TextInputType } from "@src/components/shared/inputs";
+import { Controller, useForm } from "react-hook-form";
+import { moderateScale } from "react-native-size-matters";
+import * as yup from "yup";
+
 import Button from "@src/components/shared/Button";
+import Header from "@src/components/shared/Header";
+import { TextInput, TextInputType } from "@src/components/shared/inputs";
+import RegularText from "@src/components/shared/RegularText";
+import ScreenContainer from "@src/components/shared/ScreenContainer";
 import { Routes } from "@src/navigation/routes";
+import { colors, fonts } from "@src/theme";
+import { navigate } from "@src/utils/navigation";
 
 type FormData = {
   email: string;

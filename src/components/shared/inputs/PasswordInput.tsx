@@ -1,10 +1,13 @@
 import React, { useMemo, useState } from "react";
-import { TextInput as Input, TouchableOpacity, StyleSheet } from "react-native";
-import OpenedEye from "@assets/images/openedEye.svg";
-import ClosedEye from "@assets/images/closedEye.svg";
-import { colors, fonts, hitSlop } from "@src/theme";
-import FormField from "./FormField";
+import { TextInput as Input, StyleSheet, TouchableOpacity } from "react-native";
+
 import { moderateScale } from "react-native-size-matters";
+
+import ClosedEye from "@assets/images/closedEye.svg";
+import OpenedEye from "@assets/images/openedEye.svg";
+import { colors, fonts, hitSlop } from "@src/theme";
+
+import FormField from "./FormField";
 
 type Props = {
   value: string;

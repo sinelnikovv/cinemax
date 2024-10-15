@@ -1,8 +1,12 @@
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import RegularText from "../shared/RegularText";
+
+import { moderateScale } from "react-native-size-matters";
+
 import Btn from "@assets/images/arrowBack.svg";
 import { colors } from "@src/theme";
-import { moderateScale } from "react-native-size-matters";
+
+import RegularText from "../shared/RegularText";
+
 type Props = {
   title: string;
   icon: React.ReactNode;

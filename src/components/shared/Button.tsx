@@ -6,9 +6,12 @@ import {
   TouchableOpacity,
   ViewStyle,
 } from "react-native";
-import RegularText from "./RegularText";
+
 import { moderateScale } from "react-native-size-matters";
+
 import { colors, hitSlop } from "@src/theme";
+
+import RegularText from "./RegularText";
 
 type Props = {
   children: React.ReactNode;

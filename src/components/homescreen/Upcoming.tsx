@@ -1,10 +1,13 @@
-import { useGetUpcomingQuery } from "@src/store/slices/apiSlice";
-import { StyleSheet, View, ActivityIndicator, Animated } from "react-native";
-import Carousel from "react-native-snap-carousel";
-import { colors, layout } from "@src/theme";
-import { moderateScale } from "react-native-size-matters";
-import { ExpandingDot } from "react-native-animated-pagination-dots";
 import { useRef } from "react";
+import { ActivityIndicator, Animated, StyleSheet, View } from "react-native";
+
+import { ExpandingDot } from "react-native-animated-pagination-dots";
+import { moderateScale } from "react-native-size-matters";
+import Carousel from "react-native-snap-carousel";
+
+import { useGetUpcomingQuery } from "@src/store/slices/apiSlice";
+import { colors, layout } from "@src/theme";
+
 import UpcomingItem from "./UpcomingItem";
 
 const Upcoming = () => {

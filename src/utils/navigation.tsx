@@ -1,8 +1,10 @@
+import React from "react";
+
 import { NavigationContainerRef } from "@react-navigation/native";
+
 import { AuthStackNavigatorParamList } from "@src/navigation/AuthStack";
 import { MainBottomTabNavigatorParamList } from "@src/navigation/MainBottomTab";
 import { RootStackNavigatorParamList } from "@src/navigation/RootStack";
-import React from "react";
 
 type ParamList = RootStackNavigatorParamList &
   AuthStackNavigatorParamList &

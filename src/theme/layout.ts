@@ -1,4 +1,5 @@
 import { Dimensions } from "react-native";
+
 import Constants from "expo-constants";
 import { initialWindowMetrics } from "react-native-safe-area-context";
 

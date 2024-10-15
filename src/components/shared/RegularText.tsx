@@ -1,7 +1,9 @@
-import { colors, fonts } from "@src/theme";
 import { StyleProp, TextStyle } from "react-native";
+
 import Animated from "react-native-reanimated";
 import { moderateScale } from "react-native-size-matters";
+
+import { colors, fonts } from "@src/theme";
 
 type Props = {
   font?: {

@@ -1,12 +1,16 @@
+import { StyleSheet, TouchableOpacity, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+
+import EditIcon from "@assets/images/edit.svg";
 import { useAppSelector } from "@src/hooks/store";
 import { selectUser } from "@src/store/slices/user";
-import fonts from "@src/theme/fonts";
-import { View, StyleSheet, TouchableOpacity } from "react-native";
-import { moderateScale } from "react-native-size-matters";
-import RegularText from "../shared/RegularText";
-import Avatar from "../homescreen/Avatar";
 import { colors } from "@src/theme";
-import EditIcon from "@assets/images/edit.svg";
+import fonts from "@src/theme/fonts";
+
+import Avatar from "../homescreen/Avatar";
+import RegularText from "../shared/RegularText";
+
 const User = () => {
   const user = useAppSelector(selectUser);
 

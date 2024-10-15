@@ -1,7 +1,9 @@
-import { View, StyleSheet, ViewStyle, Pressable, Modal } from "react-native";
 import React from "react";
-import { moderateScale } from "react-native-size-matters";
+import { Modal, Pressable, StyleSheet, View, ViewStyle } from "react-native";
+
 import { BlurView } from "expo-blur";
+import { moderateScale } from "react-native-size-matters";
+
 import { colors } from "@src/theme";
 
 type Props = {

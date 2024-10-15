@@ -1,10 +1,13 @@
-import { CastMember } from "@src/store/types";
-import { StyleSheet, View, Image } from "react-native";
-import { moderateScale } from "react-native-size-matters";
-import RegularText from "../shared/RegularText";
-import { fonts } from "@src/theme";
 import { useState } from "react";
+import { Image, StyleSheet, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+
+import { CastMember } from "@src/store/types";
+import { fonts } from "@src/theme";
+
+import RegularText from "../shared/RegularText";
 
 const CastItem = (item: CastMember) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);

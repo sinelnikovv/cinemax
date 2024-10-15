@@ -1,9 +1,11 @@
-import { useState, useCallback } from "react";
+import { useCallback, useState } from "react";
+
 import firestore from "@react-native-firebase/firestore";
+import { useFocusEffect } from "@react-navigation/native";
+
 import { useAppSelector } from "@src/hooks/store";
 import { selectUser } from "@src/store/slices/user";
 import { FavouriteMovie } from "@src/store/types";
-import { useFocusEffect } from "@react-navigation/native";
 
 const useFavoriteMovies = () => {
   const [favoriteMovies, setFavoriteMovies] = useState<FavouriteMovie[]>([]);

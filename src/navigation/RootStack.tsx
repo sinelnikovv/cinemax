@@ -2,13 +2,15 @@ import {
   createStackNavigator,
   StackScreenProps,
 } from "@react-navigation/stack";
+
 import { useAppSelector } from "@src/hooks/store";
-import { selectUser } from "@src/store/slices/user";
-import MainBottomTab from "./MainBottomTab";
-import AuthStack from "./AuthStack";
 import { MovieScreen, OnboardingScreen } from "@src/screens";
-import { Routes } from "./routes";
 import EditProfileScreen from "@src/screens/EditProfileScreen";
+import { selectUser } from "@src/store/slices/user";
+
+import AuthStack from "./AuthStack";
+import MainBottomTab from "./MainBottomTab";
+import { Routes } from "./routes";
 
 export type RootStackNavigatorParamList = {
   [Routes.Onboarding]: undefined;

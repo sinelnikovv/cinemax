@@ -1,36 +1,38 @@
-import Loader from "@src/components/shared/Loader";
-import ScreenContainer from "@src/components/shared/ScreenContainer";
-import { RootStackNavigatorScreenProps } from "@src/navigation/RootStack";
-import { Routes } from "@src/navigation/routes";
-import { colors, fonts, hitSlop, layout } from "@src/theme";
+import { useState } from "react";
 import {
-  StyleSheet,
+  FlatList,
   Image,
   ImageBackground,
+  StyleSheet,
   View,
-  FlatList,
 } from "react-native";
-import { moderateScale } from "react-native-size-matters";
+
+import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
-import Back from "@assets/images/arrowBack.svg";
-import RegularText from "@src/components/shared/RegularText";
-import Heart from "@assets/images/heart.svg";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import { goBack } from "@src/utils/navigation";
+import { moderateScale } from "react-native-size-matters";
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+
+import Back from "@assets/images/arrowBack.svg";
 import Calendar from "@assets/images/calendar.svg";
 import Clock from "@assets/images/clock.svg";
 import Cube from "@assets/images/cube.svg";
+import Heart from "@assets/images/heart.svg";
+import CastItem from "@src/components/MovieScreen/CastItem";
+import Loader from "@src/components/shared/Loader";
+import RegularText from "@src/components/shared/RegularText";
+import ScreenContainer from "@src/components/shared/ScreenContainer";
+import { RootStackNavigatorScreenProps } from "@src/navigation/RootStack";
+import { Routes } from "@src/navigation/routes";
 import {
   useGetCastQuery,
   useGetMovieDetailsQuery,
 } from "@src/store/slices/apiSlice";
-import { BlurView } from "expo-blur";
-import CastItem from "@src/components/MovieScreen/CastItem";
-import { useState } from "react";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
-import useFavoriteMovie from "@src/utils/firebase";
 import { MovieResponseType } from "@src/store/types";
+import { colors, fonts, hitSlop, layout } from "@src/theme";
+import useFavoriteMovie from "@src/utils/firebase";
 import { createPath } from "@src/utils/formatting";
+import { goBack } from "@src/utils/navigation";
 
 type Props = RootStackNavigatorScreenProps<Routes.Movie>;
 

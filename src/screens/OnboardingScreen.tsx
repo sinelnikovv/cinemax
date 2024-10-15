@@ -1,13 +1,15 @@
 import { useRef, useState } from "react";
-import { StyleSheet, View, Image, Animated } from "react-native";
+import { Animated, Image, StyleSheet, View } from "react-native";
+
+import { ExpandingDot } from "react-native-animated-pagination-dots";
 import { moderateScale } from "react-native-size-matters";
 import Carousel from "react-native-snap-carousel";
-import { ExpandingDot } from "react-native-animated-pagination-dots";
-import { colors, layout } from "@src/theme";
-import ScreenContainer from "@src/components/shared/ScreenContainer";
-import { navigate } from "@src/utils/navigation";
-import OndoardingItem from "@src/components/onboarding/OnboardingItem";
+
 import NextButton from "@src/components/onboarding/NextButton";
+import OndoardingItem from "@src/components/onboarding/OnboardingItem";
+import ScreenContainer from "@src/components/shared/ScreenContainer";
+import { colors, layout } from "@src/theme";
+import { navigate } from "@src/utils/navigation";
 
 const onboarding = [
   {

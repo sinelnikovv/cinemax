@@ -1,7 +1,10 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
+
 import { moderateScale } from "react-native-size-matters";
+
 import { colors, fonts } from "@src/theme";
+
 import RegularText from "../RegularText";
 
 type Props = { children?: string | null; size?: number };

@@ -1,9 +1,12 @@
 import { StyleSheet, TouchableOpacity, View, ViewStyle } from "react-native";
-import RegularText from "./RegularText";
-import Back from "@assets/images/arrowBack.svg";
+
 import { moderateScale } from "react-native-size-matters";
+
+import Back from "@assets/images/arrowBack.svg";
 import { colors, fonts } from "@src/theme";
 import { goBack } from "@src/utils/navigation";
+
+import RegularText from "./RegularText";
 
 type Props = {
   title: string;

@@ -1,11 +1,14 @@
-import { useGetGenresQuery } from "@src/store/slices/apiSlice";
 import { FlatList, StyleSheet, View } from "react-native";
-import CategoryItem from "./CategoryItem";
-import { fonts } from "@src/theme";
+
 import { moderateScale } from "react-native-size-matters";
+
 import { useAppDispatch, useAppSelector } from "@src/hooks/store";
-import RegularText from "../shared/RegularText";
+import { useGetGenresQuery } from "@src/store/slices/apiSlice";
 import { selectedGenre, setGenre } from "@src/store/slices/selectedGenreSlice";
+import { fonts } from "@src/theme";
+
+import CategoryItem from "./CategoryItem";
+import RegularText from "../shared/RegularText";
 
 const ListHeaderComponent = () => {
   const selected = useAppSelector(selectedGenre);

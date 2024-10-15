@@ -1,15 +1,18 @@
+import { useState } from "react";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+
+import { moderateScale } from "react-native-size-matters";
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+
+import Heart from "@assets/images/heart.svg";
+import { Routes } from "@src/navigation/routes";
 import { FavouriteMovie } from "@src/store/types";
 import { colors, fonts, hitSlop } from "@src/theme";
-import { StyleSheet, View, Image, TouchableOpacity } from "react-native";
-import { moderateScale } from "react-native-size-matters";
-import RegularText from "../shared/RegularText";
-import { createPath } from "@src/utils/formatting";
-import SkeletonPlaceholder from "react-native-skeleton-placeholder";
-import { useState } from "react";
-import { navigate } from "@src/utils/navigation";
-import { Routes } from "@src/navigation/routes";
 import useFavoriteMovie from "@src/utils/firebase";
-import Heart from "@assets/images/heart.svg";
+import { createPath } from "@src/utils/formatting";
+import { navigate } from "@src/utils/navigation";
+
+import RegularText from "../shared/RegularText";
 
 const FavouriteItem = (item: FavouriteMovie) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);

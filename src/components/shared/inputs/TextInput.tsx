@@ -1,8 +1,11 @@
 import React, { useMemo, useState } from "react";
 import { TextInput as Input, StyleSheet } from "react-native";
-import FormField from "./FormField";
+
 import { moderateScale } from "react-native-size-matters";
+
 import { colors, fonts } from "@src/theme";
+
+import FormField from "./FormField";
 
 export enum TextInputType {
   text = "default",

@@ -1,12 +1,14 @@
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
+
 import { moderateScale } from "react-native-size-matters";
+
 import Logo from "@assets/images/logo.svg";
-import ScreenContainer from "@src/components/shared/ScreenContainer";
-import { colors, fonts } from "@src/theme";
-import RegularText from "@src/components/shared/RegularText";
 import Button from "@src/components/shared/Button";
-import { navigate } from "@src/utils/navigation";
+import RegularText from "@src/components/shared/RegularText";
+import ScreenContainer from "@src/components/shared/ScreenContainer";
 import { Routes } from "@src/navigation/routes";
+import { colors, fonts } from "@src/theme";
+import { navigate } from "@src/utils/navigation";
 
 const IntroScreen = () => {
   return (
