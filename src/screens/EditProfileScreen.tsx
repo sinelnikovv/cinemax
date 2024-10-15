@@ -83,7 +83,7 @@ const EditProfileScreen = () => {
       <View style={styles.container}>
         <View style={{ flex: 1 }}>
           <View style={styles.info}>
-            <Avatar size={72} name={user.name} />
+            <Avatar withEdit={true} size={72} />
             <RegularText font={fonts.h4semibold} style={styles.name}>
               {user.name}
             </RegularText>

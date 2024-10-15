@@ -2221,25 +2221,30 @@
   resolved "https://registry.yarnpkg.com/@react-native-community/eslint-plugin/-/eslint-plugin-1.3.0.tgz#9e558170c106bbafaa1ef502bd8e6d4651012bf9"
   integrity sha512-+zDZ20NUnSWghj7Ku5aFphMzuM9JulqCW+aPXT6IfIXFbb8tzYTTOSeRFOtuekJ99ibW2fUCSsjuKNlwDIbHFg==
 
-"@react-native-firebase/app@^20.4.0":
-  version "20.4.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-20.4.0.tgz#a9c5c12505432d42f7d4a0c4265b8684dc8353fc"
-  integrity sha512-I3YswH5tq0kSezyFwyV0d3J+lnH+N/SdznFZ70Lr671X0YlrbEBb6BK7FzEiwq8rKeIPh+pbgnbYwzj/k9uEnQ==
+"@react-native-firebase/app@^20.5.0":
+  version "20.5.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/app/-/app-20.5.0.tgz#9dc2fbc6eee7fb00eefc9f88e404411068befd29"
+  integrity sha512-zW6jc9R8Ikxxo5qXv25No6QxdWOx37D4U0ppKZQoY6CzwGUzqc4oQUU9MclbUcx+H5p+GEzvT1EIGV6JG7/FAg==
   dependencies:
     firebase "10.12.2"
     superstruct "^0.6.2"
 
-"@react-native-firebase/auth@^20.4.0":
-  version "20.4.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-20.4.0.tgz#2619179226077e6c34d8f6cf13de0df0cde1310d"
-  integrity sha512-LUmlS9m62QdDoqJKxPyZIBLne1O7ZznY3QjGh5tfU1QVk4DM/b1iG4wR06nyEK9PqzFY5BdqWwWAKbquXl78HQ==
+"@react-native-firebase/auth@^20.5.0":
+  version "20.5.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/auth/-/auth-20.5.0.tgz#dde85ab23bd2734c2f17529f1736c9dc2fe9cf62"
+  integrity sha512-sKiifeVqsKWVAZXfYQJ6JjV8C+kuKJ0Jo82Cfj1L667l0OcwOchX9jTOP9dyt9NUEHOEIJMEzexWdFzL7nxT3g==
   dependencies:
     plist "^3.1.0"
 
-"@react-native-firebase/firestore@^20.4.0":
-  version "20.4.0"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-20.4.0.tgz#de10b44ea238c39c5eb080ee938543b85332c5d7"
-  integrity sha512-///YWJmZxCbDKM9QxaWnnEqvclIUbjsX+57hiwnzXzlNOd8dzOP1ub7EgBrzgZOT1VfybG9Fz16xTMjhxv21iQ==
+"@react-native-firebase/firestore@^20.5.0":
+  version "20.5.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/firestore/-/firestore-20.5.0.tgz#f3bf30300dd3ff2ee19c0e82a90eb1c61bf43f31"
+  integrity sha512-DsjMLHlVcj6If02kfQKpPDQ1S29mL8lAusQ8wRJ8oltQd64HBsANcjDXpWak6v7ohY6TmGvuHjBfNF73M+7LXA==
+
+"@react-native-firebase/storage@^20.5.0":
+  version "20.5.0"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/storage/-/storage-20.5.0.tgz#ec6e0a4e01f7ca68b1f5f7d8312e43313fd7abce"
+  integrity sha512-5/2q0LCTfWRo0mUClNs7Wm3Y/4CE7EEfG8yGqlabx8+f1mquDFFcsu0eqCK/dYB5oZmqflnTrW1UoWyGtgZUTw==
 
 "@react-native-masked-view/masked-view@0.3.1":
   version "0.3.1"
@@ -2659,9 +2664,9 @@
     undici-types "~5.26.4"
 
 "@types/node@>=12.12.47", "@types/node@>=13.7.0":
-  version "22.5.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.5.4.tgz#83f7d1f65bc2ed223bdbf57c7884f1d5a4fa84e8"
-  integrity sha512-FDuKUJQm/ju9fT/SeX/6+gBzoPzlVCzfzmGkwKvRHQVxi4BntVbyIwf6a4Xn62mrvndLiml6z/UBXIdEVjQLXg==
+  version "22.7.2"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-22.7.2.tgz#80ed66c0a5025ffa037587fd69a816f29b54e4c7"
+  integrity sha512-866lXSrpGpgyHBZUa2m9YNWqHDjjM0aBTJlNtYaGEw4rqY/dcD7deRVTbBBAJelfA7oaGDbNftXF/TL/A6RgoA==
   dependencies:
     undici-types "~6.19.2"
 
@@ -5059,6 +5064,25 @@ expo-font@~12.0.5:
   dependencies:
     fontfaceobserver "^2.1.0"
 
+expo-image-loader@~4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/expo-image-loader/-/expo-image-loader-4.7.0.tgz#d403106822de80bda12d644c82b7a3b7983c0f0b"
+  integrity sha512-cx+MxxsAMGl9AiWnQUzrkJMJH4eNOGlu7XkLGnAXSJrRoIiciGaKqzeaD326IyCTV+Z1fXvIliSgNW+DscvD8g==
+
+expo-image-manipulator@~12.0.5:
+  version "12.0.5"
+  resolved "https://registry.yarnpkg.com/expo-image-manipulator/-/expo-image-manipulator-12.0.5.tgz#e3dd2810d27025705f73523cd4ba47b0d091a662"
+  integrity sha512-zJ8yINjckYw/yfoSuICt4yJ9xr112+W9e5QVXwK3nCAHr7sv45RQ5sxte0qppf594TPl+UoV6Tjim7WpoKipRQ==
+  dependencies:
+    expo-image-loader "~4.7.0"
+
+expo-image-picker@~15.0.7:
+  version "15.0.7"
+  resolved "https://registry.yarnpkg.com/expo-image-picker/-/expo-image-picker-15.0.7.tgz#eb25abfdb03cb940f0418add3d9814439526b025"
+  integrity sha512-u8qiPZNfDb+ap6PJ8pq2iTO7JKX+ikAUQ0K0c7gXGliKLxoXgDdDmXxz9/6QdICTshJBJlBvI0MwY5NWu7A/uw==
+  dependencies:
+    expo-image-loader "~4.7.0"
+
 expo-json-utils@~0.13.0:
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/expo-json-utils/-/expo-json-utils-0.13.1.tgz#e49b697198e11c573d346f08ab91c467095934a9"
@@ -5073,6 +5097,14 @@ expo-linear-gradient@~13.0.2:
   version "13.0.2"
   resolved "https://registry.yarnpkg.com/expo-linear-gradient/-/expo-linear-gradient-13.0.2.tgz#21bd7bc7c71ef4f7c089521daa16db729d2aec5f"
   integrity sha512-EDcILUjRKu4P1rtWcwciN6CSyGtH7Bq4ll3oTRV7h3h8oSzSilH1g6z7kTAMlacPBKvMnkkWOGzW6KtgMKEiTg==
+
+expo-linking@~6.3.1:
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/expo-linking/-/expo-linking-6.3.1.tgz#05aef8a42bd310391d0b00644be40d80ece038d9"
+  integrity sha512-xuZCntSBGWCD/95iZ+mTUGTwHdy8Sx+immCqbUBxdvZ2TN61P02kKg7SaLS8A4a/hLrSCwrg5tMMwu5wfKr35g==
+  dependencies:
+    expo-constants "~16.0.0"
+    invariant "^2.2.4"
 
 expo-manifests@~0.14.0:
   version "0.14.3"

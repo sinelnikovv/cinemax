@@ -15,7 +15,11 @@
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.sinelnikov.cinemax",
-      "googleServicesFile": "./firebase/GoogleService-Info.plist"
+      "googleServicesFile": "./firebase/GoogleService-Info.plist",
+      "infoPlist": {
+        "NSCameraUsageDescription": "The app accesses your camera to let you share photos with your friends.",
+        "NSPhotoLibraryUsageDescription": "The app accesses your photos to let you share them with your friends."
+      }
     },
     "androidStatusBar": {
       "translucent": true
@@ -38,6 +42,14 @@
           "ios": {
             "useFrameworks": "static"
           }
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends.",
+          "cameraPermission": "The app accesses your camera to let you share photos with your friends.",
+          "microphonePermission": false
         }
       ]
     ],

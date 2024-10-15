@@ -12,7 +12,7 @@ const User = () => {
 
   return (
     <View style={styles.container}>
-      <Avatar name={user.name} />
+      <Avatar />
       <View style={styles.text}>
         <RegularText font={fonts.h4semibold} textAlign='left'>
           {user.name}
