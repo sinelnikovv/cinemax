@@ -28,13 +28,16 @@ const FormField: React.FC<Props> = ({
   value,
   containerStyle,
 }) => {
+  const topPositionActive = moderateScale(-27);
+  const topPositionInactive = moderateScale(0);
+
   const placeholderStyle = useAnimatedStyle(() => {
     let topPosition;
     isActive
-      ? (topPosition = withTiming(-10, { duration: 300 }))
+      ? (topPosition = withTiming(topPositionActive, { duration: 300 }))
       : !value
-        ? (topPosition = withTiming(20, { duration: 300 }))
-        : (topPosition = -10);
+        ? (topPosition = withTiming(topPositionInactive, { duration: 300 }))
+        : (topPosition = withTiming(topPositionActive, { duration: 300 }));
 
     return {
       top: topPosition,
@@ -53,13 +56,15 @@ const FormField: React.FC<Props> = ({
         ]}
       >
         {placeholder && (
-          <RegularText
-            font={fonts.h6medium}
-            style={[styles.placeholder, placeholderStyle]}
-            color={colors.whiteGrey}
-          >
-            {placeholder}
-          </RegularText>
+          <View style={styles.placeholderConatiner}>
+            <RegularText
+              font={fonts.h6medium}
+              style={[styles.placeholder, placeholderStyle]}
+              color={colors.whiteGrey}
+            >
+              {placeholder}
+            </RegularText>
+          </View>
         )}
         {children}
       </View>
@@ -78,11 +83,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  placeholder: {
-    backgroundColor: colors.dark,
-    paddingHorizontal: moderateScale(5),
+  placeholderConatiner: {
     position: "absolute",
-    left: 10,
+    height: "100%",
+    width: "100%",
+    alignItems: "flex-start",
+    justifyContent: "center",
+  },
+  placeholder: {
+    paddingHorizontal: moderateScale(5),
     fontSize: moderateScale(12),
+    backgroundColor: colors.dark,
+    left: 10,
   },
 });
