@@ -1,10 +1,11 @@
 import { useEffect } from "react";
 import { Image, View } from "react-native";
 
+import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
 import { useFonts } from "expo-font";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
-import "react-native-gesture-handler";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
@@ -42,8 +43,12 @@ export const App = () => {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <StatusBar style='light' />
-          <Navigation />
+          <GestureHandlerRootView>
+            <BottomSheetModalProvider>
+              <StatusBar style='light' />
+              <Navigation />
+            </BottomSheetModalProvider>
+          </GestureHandlerRootView>
         </PersistGate>
       </Provider>
     );

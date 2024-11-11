@@ -4,12 +4,12 @@ import {
   Image,
   ImageBackground,
   StyleSheet,
+  TouchableOpacity,
   View,
 } from "react-native";
 
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { moderateScale } from "react-native-size-matters";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 

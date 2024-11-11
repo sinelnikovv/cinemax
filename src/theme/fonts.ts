@@ -1,6 +1,8 @@
 import { StyleSheet } from "react-native";
-import colors from "./colors";
+
 import { moderateScale } from "react-native-size-matters";
+
+import colors from "./colors";
 
 const fonts = StyleSheet.create({
   h1semibold: {

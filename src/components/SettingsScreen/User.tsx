@@ -4,9 +4,11 @@ import { moderateScale } from "react-native-size-matters";
 
 import EditIcon from "@assets/images/edit.svg";
 import { useAppSelector } from "@src/hooks/store";
+import { Routes } from "@src/navigation/routes";
 import { selectUser } from "@src/store/slices/user";
 import { colors } from "@src/theme";
 import fonts from "@src/theme/fonts";
+import { navigate } from "@src/utils/navigation";
 
 import Avatar from "../homescreen/Avatar";
 import RegularText from "../shared/RegularText";
@@ -25,11 +27,7 @@ const User = () => {
           {user.email}
         </RegularText>
       </View>
-      <TouchableOpacity
-        onPress={() => {
-          console.log("edit");
-        }}
-      >
+      <TouchableOpacity onPress={() => navigate(Routes.EditProfile)}>
         <EditIcon />
       </TouchableOpacity>
     </View>

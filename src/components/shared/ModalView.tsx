@@ -44,6 +44,7 @@ const ModalView: React.FC<Props> = ({
 
 const styles = StyleSheet.create({
   centeredView: {
+    position: "absolute",
     flex: 1,
     justifyContent: "center",
     alignItems: "center",

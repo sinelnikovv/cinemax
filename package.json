@@ -12,6 +12,7 @@
     "postinstall": "patch-package"
   },
   "dependencies": {
+    "@gorhom/bottom-sheet": "^5.0.3",
     "@hookform/resolvers": "^3.6.0",
     "@react-native-async-storage/async-storage": "^1.23.1",
     "@react-native-community/datetimepicker": "8.0.1",
@@ -54,6 +55,7 @@
     "react-native": "0.74.1",
     "react-native-animated-pagination-dots": "^0.1.73",
     "react-native-dropdown-picker": "^5.4.6",
+    "react-native-fast-image": "^8.6.3",
     "react-native-gesture-handler": "~2.16.1",
     "react-native-modal-datetime-picker": "^17.1.0",
     "react-native-reanimated": "~3.10.1",
