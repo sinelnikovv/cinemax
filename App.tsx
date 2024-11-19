@@ -1,9 +1,8 @@
-import { useEffect } from "react";
 import { Image, View } from "react-native";
 
 import { BottomSheetModalProvider } from "@gorhom/bottom-sheet";
+import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { useFonts } from "expo-font";
-import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Provider } from "react-redux";
@@ -12,7 +11,10 @@ import { PersistGate } from "redux-persist/integration/react";
 import Navigation from "./src/navigation";
 import { persistor, store } from "./src/store/store";
 
-SplashScreen.preventAutoHideAsync();
+GoogleSignin.configure({
+  webClientId:
+    "504074289128-pbdffqp4ue78dm4supg535in9f9u63g5.apps.googleusercontent.com",
+});
 
 export const App = () => {
   const [fontsLoaded] = useFonts({
@@ -20,12 +22,6 @@ export const App = () => {
     "Montserrat-Medium": require("./src/assets/fonts/Montserrat-Medium.ttf"),
     "Montserrat-Regular": require("./src/assets/fonts/Montserrat-Regular.ttf"),
   });
-
-  useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
 
   if (!fontsLoaded) {
     return (

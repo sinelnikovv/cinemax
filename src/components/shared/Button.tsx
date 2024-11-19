@@ -36,7 +36,6 @@ const Button = ({
     <TouchableOpacity
       style={[
         styles.container,
-        containerStyle,
         type === "filled" && styles.filled,
         type === "outlined" && styles.outlined,
         size === "xsm" && styles.xsm,
@@ -44,6 +43,7 @@ const Button = ({
         size === "md" && styles.md,
         size === "lg" && styles.lg,
         size === "xlg" && styles.xlg,
+        containerStyle,
       ]}
       onPress={onPress}
       hitSlop={hitSlop.hs5}

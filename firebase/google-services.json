@@ -14,11 +14,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "504074289128-f5bv2oh94qh7bj540ija949abn96dg4h.apps.googleusercontent.com",
+          "client_id": "504074289128-ua50k0h86im0orhbclhlg8mdvi71ilfh.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.sinelnikov.cinemax",
-            "certificate_hash": "d3ba4c43905723bb03aa06cbe0e2437750c7cb1e"
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
           }
         },
         {
