@@ -6,6 +6,7 @@ import {
 import { useAppSelector } from "@src/hooks/store";
 import { MovieScreen, OnboardingScreen } from "@src/screens";
 import EditProfileScreen from "@src/screens/EditProfileScreen";
+import PopularScreen from "@src/screens/PopularScreen";
 import { selectUser } from "@src/store/slices/user";
 
 import AuthStack from "./AuthStack";
@@ -20,6 +21,7 @@ export type RootStackNavigatorParamList = {
     id: number;
   };
   [Routes.EditProfile]: undefined;
+  [Routes.PopularScreen]: undefined;
 };
 
 export type RootStackNavigatorScreenProps<
@@ -46,6 +48,7 @@ const RootStack = () => {
             name={Routes.EditProfile}
             component={EditProfileScreen}
           />
+          <Stack.Screen name={Routes.PopularScreen} component={PopularScreen} />
         </>
       )}
     </Stack.Navigator>

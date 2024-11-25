@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { HomeScreen } from "@src/screens";
 import FavouritesScreen from "@src/screens/FavouritesScreen";
+import SearchScreen from "@src/screens/SearchScreen";
 import SettingsScreen from "@src/screens/SettingsScreen";
 
 import { Routes } from "./routes";
@@ -24,7 +25,7 @@ const MainBottomTabNavigator = () => {
       screenOptions={{ headerShown: false }}
     >
       <Tab.Screen name={Routes.Home} component={HomeScreen} />
-      <Tab.Screen name={Routes.Search} component={HomeScreen} />
+      <Tab.Screen name={Routes.Search} component={SearchScreen} />
       <Tab.Screen name={Routes.Favourites} component={FavouritesScreen} />
       <Tab.Screen name={Routes.Settings} component={SettingsScreen} />
     </Tab.Navigator>

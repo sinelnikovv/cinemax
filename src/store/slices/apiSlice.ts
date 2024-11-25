@@ -6,6 +6,7 @@ import {
   discoverMovieDto,
   GenreResponse,
   MovieResponseType,
+  searchMovieDto,
   searchMovieResponse,
   UpcomingMoviesResponse,
 } from "../types";
@@ -30,9 +31,15 @@ export const apiSlice = createApi({
       query: () => "/genre/movie/list",
       keepUnusedDataFor: 1500,
     }),
-    getSearchMovies: builder.query<searchMovieResponse, discoverMovieDto>({
+    getDiscoverMovies: builder.query<searchMovieResponse, discoverMovieDto>({
       query: (params) => ({
         url: "/discover/movie",
+        params,
+      }),
+    }),
+    getSearchMovies: builder.query<searchMovieResponse, searchMovieDto>({
+      query: (params) => ({
+        url: "/search/movie",
         params,
       }),
     }),
@@ -44,5 +51,6 @@ export const {
   useGetMovieDetailsQuery,
   useGetCastQuery,
   useGetGenresQuery,
+  useGetDiscoverMoviesQuery,
   useGetSearchMoviesQuery,
 } = apiSlice;

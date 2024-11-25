@@ -4,9 +4,11 @@ import { moderateScale } from "react-native-size-matters";
 import Carousel from "react-native-snap-carousel";
 
 import { useAppSelector } from "@src/hooks/store";
-import { useGetSearchMoviesQuery } from "@src/store/slices/apiSlice";
+import { Routes } from "@src/navigation/routes";
+import { useGetDiscoverMoviesQuery } from "@src/store/slices/apiSlice";
 import { selectedGenre } from "@src/store/slices/selectedGenreSlice";
 import { fonts, layout } from "@src/theme";
+import { navigate } from "@src/utils/navigation";
 
 import MostPopularItem from "./MostPopularItem";
 import Button from "../shared/Button";
@@ -15,7 +17,7 @@ import RegularText from "../shared/RegularText";
 const MostPopular = () => {
   const selected = useAppSelector(selectedGenre);
 
-  const { data } = useGetSearchMoviesQuery({
+  const { data } = useGetDiscoverMoviesQuery({
     include_adult: true,
     page: 1,
     sort_by: "popularity.desc",
@@ -28,7 +30,11 @@ const MostPopular = () => {
         <RegularText font={fonts.h4semibold} textAlign='left'>
           Most popular
         </RegularText>
-        <Button onPress={() => console.log("see all")} size='xsm' type='text'>
+        <Button
+          onPress={() => navigate(Routes.PopularScreen)}
+          size='xsm'
+          type='text'
+        >
           See All
         </Button>
       </View>

@@ -11,4 +11,5 @@ export enum Routes {
   Settings = "Settings",
   EditProfile = "EditProfile",
   Movie = "Movie",
+  PopularScreen = "PopularScreen",
 }

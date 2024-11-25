@@ -1,9 +1,9 @@
-export type discoverMovieDto = {
-  include_adult: boolean;
+export type discoverMovieDto = discoverFilters & {
   page: number;
-  primary_release_year?: number;
-  "primary_release_date.gte"?: string; // YYYY-MM-DD
-  "primary_release_date.lte"?: string; // YYYY-MM-DD
+};
+
+export type discoverFilters = {
+  include_adult: boolean;
   sort_by:
     | "original_title.asc"
     | "original_title.desc"
@@ -22,7 +22,9 @@ export type discoverMovieDto = {
     | "vote_count.asc"
     | "vote_count.desc";
   "vote_average.gte"?: number; // float
-  "vote_average.lte"?: number; // float
+  primary_release_year?: number;
+  "primary_release_date.gte"?: string; // YYYY-MM-DD
+  "primary_release_date.lte"?: string; // YYYY-MM-DD
   with_genres?: string;
 };
 
@@ -48,6 +50,11 @@ export type searchMovieResult = {
   video: boolean;
   vote_average: number;
   vote_count: number;
+};
+
+export type searchMovieDto = {
+  page: number;
+  query: string;
 };
 
 export type searchTVDto = {
