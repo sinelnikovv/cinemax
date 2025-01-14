@@ -6,11 +6,21 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { navigationRef } from "@src/utils/navigation";
 
 import RootStack from "./RootStack";
+import { Routes } from "./routes";
+
+const linking = {
+  prefixes: ["cinemax://"],
+  config: {
+    screens: {
+      [Routes.Movie]: "movie/:id",
+    },
+  },
+};
 
 const Navigation = () => {
   return (
     <SafeAreaProvider>
-      <NavigationContainer ref={navigationRef}>
+      <NavigationContainer linking={linking} ref={navigationRef}>
         <RootStack />
       </NavigationContainer>
     </SafeAreaProvider>

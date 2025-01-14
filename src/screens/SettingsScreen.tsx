@@ -18,7 +18,7 @@ const SettingsScreen = () => {
   return (
     <ScreenContainer scroll={false}>
       <User />
-      <View style={[styles.container, { flex: 1 }]}>
+      <View style={styles.container}>
         <RegularText textAlign='left'>General</RegularText>
         <SettingsItem
           onPress={() => {}}
@@ -43,5 +43,6 @@ const styles = StyleSheet.create({
     padding: moderateScale(16),
     borderColor: colors.soft,
     marginBottom: moderateScale(24),
+    flex: 1,
   },
 });

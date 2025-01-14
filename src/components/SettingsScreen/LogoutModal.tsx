@@ -25,41 +25,43 @@ const LogoutModal = ({ isShow, setIsShow }: Props) => {
     setIsShow(false);
   };
   return (
-    <ModalView handleCloseButton={() => setIsShow(false)} isShow={isShow}>
-      <View style={styles.container}>
-        <LogoutIcon />
-        <RegularText style={styles.title} font={fonts.h3semibold}>
-          Are you sure ?
-        </RegularText>
-        <RegularText
-          style={styles.subtitle}
-          font={fonts.h6regular}
-          color={colors.grey}
-        >
-          Ullamcorper imperdiet urna id non sed est sem. Rhoncus amet, enim
-          purus gravida donec aliquet.
-        </RegularText>
+    <View style={{ width: 1, height: 1 }}>
+      <ModalView handleCloseButton={() => setIsShow(false)} isShow={isShow}>
+        <View style={styles.container}>
+          <LogoutIcon />
+          <RegularText style={styles.title} font={fonts.h3semibold}>
+            Are you sure ?
+          </RegularText>
+          <RegularText
+            style={styles.subtitle}
+            font={fonts.h6regular}
+            color={colors.grey}
+          >
+            Ullamcorper imperdiet urna id non sed est sem. Rhoncus amet, enim
+            purus gravida donec aliquet.
+          </RegularText>
 
-        <View style={styles.boxContainer}>
-          <Button
-            containerStyle={styles.btn}
-            size='xlg'
-            type='outlined'
-            onPress={logoutHandler}
-            textStyle={{}}
-          >
-            Log Out
-          </Button>
-          <Button
-            containerStyle={styles.btn}
-            size='xlg'
-            onPress={() => setIsShow(false)}
-          >
-            Cancel
-          </Button>
+          <View style={styles.boxContainer}>
+            <Button
+              containerStyle={styles.btn}
+              size='xlg'
+              type='outlined'
+              onPress={logoutHandler}
+              textStyle={{}}
+            >
+              Log Out
+            </Button>
+            <Button
+              containerStyle={styles.btn}
+              size='xlg'
+              onPress={() => setIsShow(false)}
+            >
+              Cancel
+            </Button>
+          </View>
         </View>
-      </View>
-    </ModalView>
+      </ModalView>
+    </View>
   );
 };
 

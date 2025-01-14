@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "cinemax", 
     "name": "Cinemax",
     "slug": "Cinemax",
     "version": "0.1.0",

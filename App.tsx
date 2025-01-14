@@ -8,6 +8,8 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
+import useNotifications from "@src/hooks/useNotifications";
+
 import Navigation from "./src/navigation";
 import { persistor, store } from "./src/store/store";
 
@@ -22,6 +24,8 @@ export const App = () => {
     "Montserrat-Medium": require("./src/assets/fonts/Montserrat-Medium.ttf"),
     "Montserrat-Regular": require("./src/assets/fonts/Montserrat-Regular.ttf"),
   });
+
+  useNotifications();
 
   if (!fontsLoaded) {
     return (
