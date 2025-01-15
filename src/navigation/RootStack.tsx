@@ -38,11 +38,11 @@ const RootStack = () => {
       {!user ? (
         <>
           <Stack.Screen name={Routes.Onboarding} component={OnboardingScreen} />
-          <Stack.Screen name='AuthStack' component={AuthStack} />
+          <Stack.Screen name={Routes.Auth} component={AuthStack} />
         </>
       ) : (
         <>
-          <Stack.Screen name='MainBottomTab' component={MainBottomTab} />
+          <Stack.Screen name={Routes.MainBottomTab} component={MainBottomTab} />
           <Stack.Screen name={Routes.Movie} component={MovieScreen} />
           <Stack.Screen
             name={Routes.EditProfile}

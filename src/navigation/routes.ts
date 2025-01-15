@@ -1,5 +1,7 @@
 export enum Routes {
   Onboarding = "Onboarding",
+  Auth = "AuthStack",
+  MainBottomTab = "MainBottomTab",
   Intro = "Intro",
   Login = "Login",
   SignUp = "SignUp",

@@ -8,6 +8,7 @@ import Carousel from "react-native-snap-carousel";
 import NextButton from "@src/components/onboarding/NextButton";
 import OndoardingItem from "@src/components/onboarding/OnboardingItem";
 import ScreenContainer from "@src/components/shared/ScreenContainer";
+import { Routes } from "@src/navigation/routes";
 import { colors, layout } from "@src/theme";
 import { navigate } from "@src/utils/navigation";
 
@@ -51,7 +52,7 @@ const OnboardingScreen = () => {
     carouselRef.current?.snapToNext();
     step === 1 && setStep(2);
     step === 2 && setStep(3);
-    step === 3 && navigate("AuthStack");
+    step === 3 && navigate(Routes.Auth);
   };
 
   const carouselRef = useRef(null);
