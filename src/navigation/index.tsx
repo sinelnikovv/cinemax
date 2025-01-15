@@ -9,7 +9,7 @@ import RootStack from "./RootStack";
 import { Routes } from "./routes";
 
 const linking = {
-  prefixes: ["cinemax://"],
+  prefixes: ["cinemax://", "https://cinemax.com"],
   config: {
     screens: {
       [Routes.Movie]: "movie/:id",

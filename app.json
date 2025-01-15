@@ -20,7 +20,10 @@
       "infoPlist": {
         "NSCameraUsageDescription": "The app accesses your camera to let you share photos with your friends.",
         "NSPhotoLibraryUsageDescription": "The app accesses your photos to let you share them with your friends."
-      }
+      },
+      "associatedDomains": [
+        "applinks:cinemax.com"
+      ]
     },
     "androidStatusBar": {
       "translucent": true
@@ -31,7 +34,20 @@
       "adaptiveIcon": {
         "foregroundImage": "./src/assets/images/appIcon.png",
         "backgroundColor": "#171725"
-      }
+      },
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [
+            {
+              "scheme": "https",
+              "host": "cinemax.com"
+            }
+          ],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
     },
     "plugins": [
       "expo-font",
@@ -54,7 +70,6 @@
           "microphonePermission": false
         }
       ]
-
     ],
     "packagerOpts": {
       "sourceExts": ["js", "jsx", "svgx"],

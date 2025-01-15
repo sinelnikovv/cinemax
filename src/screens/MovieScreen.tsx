@@ -3,6 +3,7 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  Share,
   StyleSheet,
   TouchableOpacity,
   View,
@@ -18,6 +19,7 @@ import Calendar from "@assets/images/calendar.svg";
 import Clock from "@assets/images/clock.svg";
 import Cube from "@assets/images/cube.svg";
 import Heart from "@assets/images/heart.svg";
+import ShareIcon from "@assets/images/share.svg";
 import CastItem from "@src/components/MovieScreen/CastItem";
 import Loader from "@src/components/shared/Loader";
 import RegularText from "@src/components/shared/RegularText";
@@ -32,7 +34,7 @@ import { MovieResponseType } from "@src/store/types";
 import { colors, fonts, hitSlop, layout } from "@src/theme";
 import useFavoriteMovie from "@src/utils/firebase";
 import { createPath } from "@src/utils/formatting";
-import { goBack } from "@src/utils/navigation";
+import { navigate } from "@src/utils/navigation";
 
 type Props = RootStackNavigatorScreenProps<Routes.Movie>;
 
@@ -56,6 +58,12 @@ const MovieScreen = ({ route }: Props) => {
     });
   };
 
+  const shareMovie = () => {
+    Share.share({
+      message: `https://cinemax.com/movie/${id}`,
+    });
+  };
+
   return (
     <ScreenContainer useInsets={false} sideBorder={false}>
       {isLoadingMovie ? (
@@ -75,7 +83,14 @@ const MovieScreen = ({ route }: Props) => {
               colors={["#1F1D2B14", "#1F1D2BFF"]}
             />
             <View style={styles.header}>
-              <TouchableOpacity hitSlop={hitSlop.hs8} onPress={() => goBack()}>
+              <TouchableOpacity
+                hitSlop={hitSlop.hs8}
+                onPress={() =>
+                  navigate(Routes.MainBottomTab, {
+                    screen: Routes.Home,
+                  })
+                }
+              >
                 <Back />
               </TouchableOpacity>
               <RegularText
@@ -85,13 +100,28 @@ const MovieScreen = ({ route }: Props) => {
               >
                 {movie.title}
               </RegularText>
-              <TouchableOpacity
-                hitSlop={hitSlop.hs8}
-                onPress={() => toggleHandler(movie)}
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: moderateScale(8),
+                  alignItems: "center",
+                }}
               >
-                <Heart fill={isFavorite ? "red" : "transparent"} />
-              </TouchableOpacity>
+                <TouchableOpacity
+                  hitSlop={hitSlop.hs8}
+                  onPress={() => toggleHandler(movie)}
+                >
+                  <Heart fill={isFavorite ? "red" : "transparent"} />
+                </TouchableOpacity>
+                <TouchableOpacity
+                  hitSlop={hitSlop.hs8}
+                  onPress={() => shareMovie()}
+                >
+                  <ShareIcon />
+                </TouchableOpacity>
+              </View>
             </View>
+
             <View style={styles.main}>
               {!isLoadedImg && (
                 <View style={{ position: "absolute" }}>
@@ -140,7 +170,7 @@ const MovieScreen = ({ route }: Props) => {
                   </RegularText>
                 </View>
               </View>
-              <BlurView intensity={90} style={styles.rating}>
+              <BlurView intensity={10} style={styles.rating}>
                 <View>
                   <RegularText
                     font={fonts.h5semibold}
