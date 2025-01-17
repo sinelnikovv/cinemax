@@ -11,6 +11,7 @@ import {
 
 import { BlurView } from "expo-blur";
 import { LinearGradient } from "expo-linear-gradient";
+import branch from "react-native-branch";
 import { moderateScale } from "react-native-size-matters";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 
@@ -58,9 +59,20 @@ const MovieScreen = ({ route }: Props) => {
     });
   };
 
-  const shareMovie = () => {
+  const shareMovie = async () => {
+    const object = await branch.createBranchUniversalObject(id.toString(), {
+      title: movie.title,
+      contentDescription: movie.overview,
+      contentMetadata: {
+        productName: id.toString(),
+      },
+    });
+
+    const { url } = await object.generateShortUrl({
+      feature: "share",
+    });
     Share.share({
-      message: `https://cinemax.com/movie/${id}`,
+      message: `${url}`,
     });
   };
 

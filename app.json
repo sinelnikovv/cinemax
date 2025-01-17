@@ -1,6 +1,6 @@
 {
   "expo": {
-    "scheme": "cinemax", 
+    "scheme": "cinemax",
     "name": "Cinemax",
     "slug": "Cinemax",
     "version": "0.1.0",
@@ -19,10 +19,15 @@
       "googleServicesFile": "./firebase/GoogleService-Info.plist",
       "infoPlist": {
         "NSCameraUsageDescription": "The app accesses your camera to let you share photos with your friends.",
-        "NSPhotoLibraryUsageDescription": "The app accesses your photos to let you share them with your friends."
+        "NSPhotoLibraryUsageDescription": "The app accesses your photos to let you share them with your friends.",
+        "branch_universal_link_domains": [
+          "applinks:wtmmf.app.link",
+          "applinks:wtmmf-alternate.app.link"
+        ]
       },
       "associatedDomains": [
-        "applinks:cinemax.com"
+        "applinks:wtmmf.app.link",
+        "applinks:wtmmf-alternate.app.link"
       ]
     },
     "androidStatusBar": {
@@ -42,10 +47,17 @@
           "data": [
             {
               "scheme": "https",
-              "host": "cinemax.com"
+              "host": "wtmmf.app.link"
+            },
+            {
+              "scheme": "https",
+              "host": "wtmmf.app.link"
             }
           ],
-          "category": ["BROWSABLE", "DEFAULT"]
+          "category": [
+            "BROWSABLE",
+            "DEFAULT"
+          ]
         }
       ]
     },

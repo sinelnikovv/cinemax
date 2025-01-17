@@ -8,6 +8,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 
+import useDeepLinking from "@src/hooks/useDeepLinking";
 import useNotifications from "@src/hooks/useNotifications";
 
 import Navigation from "./src/navigation";
@@ -19,6 +20,8 @@ GoogleSignin.configure({
 });
 
 export const App = () => {
+  useDeepLinking();
+
   const [fontsLoaded] = useFonts({
     "Montserrat-SemiBold": require("./src/assets/fonts/Montserrat-SemiBold.ttf"),
     "Montserrat-Medium": require("./src/assets/fonts/Montserrat-Medium.ttf"),
@@ -26,7 +29,6 @@ export const App = () => {
   });
 
   useNotifications();
-
   if (!fontsLoaded) {
     return (
       <View style={{ flex: 1 }}>
