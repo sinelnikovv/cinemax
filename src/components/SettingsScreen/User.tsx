@@ -21,10 +21,10 @@ const User = () => {
       <Avatar />
       <View style={styles.text}>
         <RegularText font={fonts.h4semibold} textAlign='left'>
-          {user.name}
+          {user?.name}
         </RegularText>
         <RegularText font={fonts.h5medium} textAlign='left'>
-          {user.email}
+          {user?.email}
         </RegularText>
       </View>
       <TouchableOpacity onPress={() => navigate(Routes.EditProfile)}>

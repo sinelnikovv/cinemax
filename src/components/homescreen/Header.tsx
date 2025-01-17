@@ -17,7 +17,7 @@ const Header = () => {
       <Avatar />
       <View style={styles.text}>
         <RegularText font={fonts.h4semibold} textAlign='left'>
-          Hello, {user.name}
+          Hello, {user?.name}
         </RegularText>
         <RegularText font={fonts.h5medium} textAlign='left'>
           Let`s choose film to watch

@@ -36,7 +36,7 @@ const Avatar = ({ size = 40, withEdit = false }: Props) => {
 
   const user = useAppSelector(selectUser);
 
-  const initials = user.name
+  const initials = user?.name
     .split(" ")
     .map((n) => n[0])
     .join("");
@@ -112,15 +112,16 @@ const Avatar = ({ size = 40, withEdit = false }: Props) => {
   };
 
   useEffect(() => {
-    const fetchAvatar = async () => {
-      const reference = storage().ref(`avatars/${user.userId}`);
+    if (user) {
+      const fetchAvatar = async () => {
+        const reference = storage().ref(`avatars/${user.userId}`);
+        const url = await reference.getDownloadURL();
+        url && setImage(url);
+      };
 
-      const url = await reference.getDownloadURL();
-      url && setImage(url);
-    };
-
-    fetchAvatar();
-  }, [user.userId]);
+      fetchAvatar();
+    }
+  }, [user]);
 
   const closeRef = useRef(() => {});
   const openRef = useRef(() => {});

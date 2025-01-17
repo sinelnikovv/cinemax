@@ -13,7 +13,7 @@ const useFavoriteMovies = () => {
   const [error, setError] = useState<string | null>(null);
 
   const user = useAppSelector(selectUser);
-  const userId = user.userId;
+  const userId = user?.userId;
   const moviesRef = firestore()
     .collection("users")
     .doc(userId)
