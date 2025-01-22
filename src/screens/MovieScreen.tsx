@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   FlatList,
   Image,
@@ -25,12 +25,14 @@ import CastItem from "@src/components/MovieScreen/CastItem";
 import Loader from "@src/components/shared/Loader";
 import RegularText from "@src/components/shared/RegularText";
 import ScreenContainer from "@src/components/shared/ScreenContainer";
+import { useAppSelector } from "@src/hooks/store";
 import { RootStackNavigatorScreenProps } from "@src/navigation/RootStack";
 import { Routes } from "@src/navigation/routes";
 import {
   useGetCastQuery,
   useGetMovieDetailsQuery,
 } from "@src/store/slices/apiSlice";
+import { selectUser } from "@src/store/slices/user";
 import { MovieResponseType } from "@src/store/types";
 import { colors, fonts, hitSlop, layout } from "@src/theme";
 import useFavoriteMovie from "@src/utils/firebase";
@@ -40,6 +42,7 @@ import { navigate } from "@src/utils/navigation";
 type Props = RootStackNavigatorScreenProps<Routes.Movie>;
 
 const MovieScreen = ({ route }: Props) => {
+  const user = useAppSelector(selectUser);
   const [isLoadedImg, setIsLoadedImg] = useState(false);
   const id = route.params.id;
   const { data: movie, isLoading: isLoadingMovie } = useGetMovieDetailsQuery({
@@ -119,12 +122,14 @@ const MovieScreen = ({ route }: Props) => {
                   alignItems: "center",
                 }}
               >
-                <TouchableOpacity
-                  hitSlop={hitSlop.hs8}
-                  onPress={() => toggleHandler(movie)}
-                >
-                  <Heart fill={isFavorite ? "red" : "transparent"} />
-                </TouchableOpacity>
+                {!!user && (
+                  <TouchableOpacity
+                    hitSlop={hitSlop.hs8}
+                    onPress={() => toggleHandler(movie)}
+                  >
+                    <Heart fill={isFavorite ? "red" : "transparent"} />
+                  </TouchableOpacity>
+                )}
                 <TouchableOpacity
                   hitSlop={hitSlop.hs8}
                   onPress={() => shareMovie()}

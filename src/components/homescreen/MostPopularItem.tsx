@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { BlurView } from "expo-blur";
@@ -6,8 +6,10 @@ import { moderateScale } from "react-native-size-matters";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 
 import Heart from "@assets/images/heart.svg";
+import { useAppSelector } from "@src/hooks/store";
 import { Routes } from "@src/navigation/routes";
 import { useGetGenresQuery } from "@src/store/slices/apiSlice";
+import { selectUser } from "@src/store/slices/user";
 import { searchMovieResult } from "@src/store/types";
 import { colors, fonts, hitSlop } from "@src/theme";
 import useFavoriteMovie from "@src/utils/firebase";
@@ -17,6 +19,7 @@ import { navigate } from "@src/utils/navigation";
 import RegularText from "../shared/RegularText";
 
 const MostPopularItem = (item: searchMovieResult) => {
+  const user = useAppSelector(selectUser);
   const { data: allGenres } = useGetGenresQuery();
   const [isLoadedImg, setIsLoadedImg] = useState(false);
   const movieGenre = allGenres
@@ -86,13 +89,15 @@ const MostPopularItem = (item: searchMovieResult) => {
             </RegularText>
           </View>
         </BlurView>
-        <TouchableOpacity
-          hitSlop={hitSlop.hs8}
-          onPress={() => toggleHandler()}
-          style={styles.heart}
-        >
-          <Heart fill={isFavorite ? "red" : "transparent"} />
-        </TouchableOpacity>
+        {!!user && (
+          <TouchableOpacity
+            hitSlop={hitSlop.hs8}
+            onPress={() => toggleHandler()}
+            style={styles.heart}
+          >
+            <Heart fill={isFavorite ? "red" : "transparent"} />
+          </TouchableOpacity>
+        )}
       </>
     </TouchableOpacity>
   );

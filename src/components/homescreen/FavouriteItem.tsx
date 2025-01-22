@@ -1,11 +1,13 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { moderateScale } from "react-native-size-matters";
 import SkeletonPlaceholder from "react-native-skeleton-placeholder";
 
 import Heart from "@assets/images/heart.svg";
+import { useAppSelector } from "@src/hooks/store";
 import { Routes } from "@src/navigation/routes";
+import { selectUser } from "@src/store/slices/user";
 import { FavouriteMovie } from "@src/store/types";
 import { colors, fonts, hitSlop } from "@src/theme";
 import useFavoriteMovie from "@src/utils/firebase";
@@ -18,6 +20,8 @@ const FavouriteItem = (item: FavouriteMovie) => {
   const [isLoadedImg, setIsLoadedImg] = useState(false);
   const { favoriteMovies, toggleFavoriteMovie } = useFavoriteMovie();
   const isFavorite = favoriteMovies.some((movie) => movie.id === item.id);
+
+  const user = useAppSelector(selectUser);
 
   const toggleHandler = () => {
     toggleFavoriteMovie({
@@ -62,13 +66,15 @@ const FavouriteItem = (item: FavouriteMovie) => {
             {item.title}
           </RegularText>
         </View>
-        <TouchableOpacity
-          hitSlop={hitSlop.hs8}
-          onPress={() => toggleHandler()}
-          style={styles.heart}
-        >
-          <Heart fill={isFavorite ? "red" : "transparent"} />
-        </TouchableOpacity>
+        {!!user && (
+          <TouchableOpacity
+            hitSlop={hitSlop.hs8}
+            onPress={() => toggleHandler()}
+            style={styles.heart}
+          >
+            <Heart fill={isFavorite ? "red" : "transparent"} />
+          </TouchableOpacity>
+        )}
       </>
     </TouchableOpacity>
   );
